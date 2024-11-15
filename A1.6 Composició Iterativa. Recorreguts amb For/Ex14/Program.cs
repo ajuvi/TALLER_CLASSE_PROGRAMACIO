@@ -43,6 +43,8 @@ namespace Ex14
                 preuTiquet = preuTiquet + quantitat * preu;
             }
 
+            fTiquet.Close();
+
             Console.WriteLine($"EL PREU DEL TIQUET ÉS {preuTiquet}");
 
 
