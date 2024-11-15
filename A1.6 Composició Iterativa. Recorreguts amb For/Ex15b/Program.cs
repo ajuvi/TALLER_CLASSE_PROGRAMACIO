@@ -18,7 +18,7 @@ namespace Ex15b
 
             for (int i = 1; i <= n; i++)
             {
-                linia = GenerarLinia('$', n);
+                linia = GenerarLinia('*', n);
                 Console.WriteLine(linia);
             }
 
