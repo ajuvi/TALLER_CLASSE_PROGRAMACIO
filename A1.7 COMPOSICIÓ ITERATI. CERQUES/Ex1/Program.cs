@@ -10,6 +10,8 @@ namespace Ex1
     {
         static void Main(string[] args)
         {
+
+            //està resolt en el Annexes
         }
     }
 }
