@@ -27,19 +27,15 @@ namespace Ex5b
         public static bool EsPerfecte(int n)
         {
             int suma;
-
             suma = 0;
 
             for (int i = 1; i <= n / 2; i++)
             {
                 if (n % i == 0)
-                {
                     suma = suma + i;
-                }
             }
 
             return suma == n;
-
         }
     }
 }
