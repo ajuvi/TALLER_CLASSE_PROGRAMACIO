@@ -24,7 +24,6 @@ namespace Ex5a
                 {
                     suma = suma + i;
                 }
-
             }
 
             if(suma==num)
@@ -38,5 +37,38 @@ namespace Ex5a
             Console.ReadKey();
 
         }
+
+
     }
 }
+
+
+/* Possible solucióm amb cerca
+ 
+        static void Main(string[] args)
+        {
+            int num, pos, suma;
+
+            Console.Write("ENTRA UN NÚMERO: ");
+            num = Convert.ToInt32(Console.ReadLine());
+
+            suma = 0;
+            pos = 1;
+
+            while (suma<=num && pos<=num/2) {
+                if (num % pos == 0)
+                    suma = suma + pos;
+
+                pos++;
+            }
+
+            if (suma==num)
+                Console.WriteLine("ÉS PERFECTE!");
+            else
+                Console.WriteLine("NO ÉS PERFECTE.");
+        }
+
+
+*/
+
+
