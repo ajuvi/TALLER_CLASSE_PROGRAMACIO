@@ -5,34 +5,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex3a
+namespace Ex3b
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            const string FILE_NAME = "NUMEROS.TXT";
-
-            StreamReader sr;
-            string linia;
             int numeroActual;
             bool trobat;
 
-            sr = new StreamReader(FILE_NAME);
             trobat = false;
 
             //llegir el primer número
-            linia = sr.ReadLine();
-            while (!trobat && linia != null)
+            Console.Write("ENTRA UN NUMERO: ");
+            numeroActual = Convert.ToInt32(Console.ReadLine());
+
+            while (!trobat && numeroActual != -9999)
             {
-                numeroActual = Convert.ToInt32(linia);
                 trobat = numeroActual % 2 == 0;
 
-                linia = sr.ReadLine();
-                
-            }
+                if (!trobat)
+                {
+                    Console.Write("ENTRA UN NUMERO: ");
+                    numeroActual = Convert.ToInt32(Console.ReadLine());
+                }
 
-            sr.Close();
+            }
 
             if (trobat)
                 Console.WriteLine("HI HA ALGUN NUMERO PARELL");
@@ -42,6 +40,5 @@ namespace Ex3a
 
             Console.ReadKey();
         }
-
     }
 }
