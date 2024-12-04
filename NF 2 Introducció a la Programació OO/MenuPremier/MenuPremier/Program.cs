@@ -79,38 +79,19 @@ namespace MenuPremier
         /// <param name="fileTeams">fitxer que conté tots els equips</param>
         public static void DoSearchTeam(string fileTeams)
         {
-            StreamReader sr;
-            string abv;
-            string targetAbv;
-            string linia;
-            string nomEquip = "";
-            bool trobat;
+            String targetAvg;
+            String nomEquip;
 
-            Console.Write("\nENTRA UNA ABREVIATURA: ");
-            targetAbv = Console.ReadLine();
+            Console.Write("ENTRA EL CODI DE L'EQUIP: ");
+            targetAvg = Console.ReadLine();
 
-            sr = new StreamReader(fileTeams);
-            trobat = false;
-            linia = sr.ReadLine();
-            while(!trobat && linia != null)
-            {
-                nomEquip = linia;
-                abv = sr.ReadLine();
+            nomEquip = GetTeam(fileTeams, targetAvg);
 
-                trobat = abv == targetAbv;
-
-                if (!trobat)
-                    linia = sr.ReadLine();
-            }
-
-            if (trobat)
-            {
+            if(nomEquip!=null)
                 Console.WriteLine($"NOM EQUIP: {nomEquip}");
-            }
             else
-            {
-                Console.WriteLine("NO S'HA TROBAT L'EQUIP");
-            }
+                Console.WriteLine("L'EQUIP NO EXISTEIX");
+
 
             MsgNextScreen("PREM UNA TECLA PER CONTINUAR.");
         }
