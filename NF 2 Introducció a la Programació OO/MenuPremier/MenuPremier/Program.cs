@@ -11,8 +11,55 @@ namespace MenuPremier
     {
         static void Main(string[] args)
         {
+            const string FILE_MATCHES = "MATCHES.TXT";
+            const string FILE_TEAMS = "TEAMS.TXT";
+
+            ConsoleKeyInfo tecla;
+            do
+            {
+                Console.Clear();
+                MostrarMenu();
+
+                Console.Write("\nENTRA UNA OPCIÓ: ");
+                tecla = Console.ReadKey();
+
+                switch (tecla.Key)
+                {
+                    case ConsoleKey.D1:
+                        DoSearchTeam(FILE_TEAMS);
+                        break;
+                    case ConsoleKey.D2:
+                        DoGetGoalsTeam(FILE_TEAMS, FILE_MATCHES);
+                        break;
+                    case ConsoleKey.D3:
+                        Console.WriteLine("\nNot implemented yed");
+                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        break;
+                    case ConsoleKey.D4:
+                        Console.WriteLine("\nNot implemented yed");
+                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        break;
+                    case ConsoleKey.D0:
+                        Console.WriteLine("\nHAS FINALITZAT EL PROGRAMA.");
+                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        break;
+                    default:
+                        Console.WriteLine("\nOPCIÓ NO VÁLIDA.");
+                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        break;
+                }
+            } while (tecla.Key!=ConsoleKey.D0);
 
 
+        }
+
+        public static void MostrarMenu()
+        {
+            Console.WriteLine("1- CERCAR EQUIP");
+            Console.WriteLine("2- GOLS D'UN EQUIP EN UNA TEMPORADA");
+            Console.WriteLine("3- MOSTRAR RESULTAT D'UN PARTIT CONCRET");
+            Console.WriteLine("4- PUNTS FETS PER UN EQUIP EN UNA TEMPORADA");
+            Console.WriteLine("0- EXIT");
         }
 
         /// <summary>
@@ -57,9 +104,5 @@ namespace MenuPremier
             MsgNextScreen("PREM UNA TECLA PER TORNAR AL MENÚ PRINCIPAL");
         }
  
-        public static void MostrarMenu()
-        {
-
-        }
     }
 }
