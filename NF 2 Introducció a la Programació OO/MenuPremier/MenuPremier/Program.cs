@@ -72,13 +72,47 @@ namespace MenuPremier
             Console.ReadKey();
         }
         /// <summary>
-        /// Es demana per teclat l'abreviatura d'un equip i s'informa si l'equip existeix o no. 
+        /// Es demana per teclat l'abreviatura d'un equip i s'informa 
+        /// si l'equip existeix o no. 
         /// En cas que existeixi, es mostren les dades de l'equip
         /// </summary>
         /// <param name="fileTeams">fitxer que conté tots els equips</param>
         public static void DoSearchTeam(string fileTeams)
         {
-                     
+            StreamReader sr;
+            string abv;
+            string targetAbv;
+            string linia;
+            string nomEquip = "";
+            bool trobat;
+
+            Console.Write("\nENTRA UNA ABREVIATURA: ");
+            targetAbv = Console.ReadLine();
+
+            sr = new StreamReader(fileTeams);
+            trobat = false;
+            linia = sr.ReadLine();
+            while(!trobat && linia != null)
+            {
+                nomEquip = linia;
+                abv = sr.ReadLine();
+
+                trobat = abv == targetAbv;
+
+                if (!trobat)
+                    linia = sr.ReadLine();
+            }
+
+            if (trobat)
+            {
+                Console.WriteLine($"NOM EQUIP: {nomEquip}");
+            }
+            else
+            {
+                Console.WriteLine("NO S'HA TROBAT L'EQUIP");
+            }
+
+            MsgNextScreen("PREM UNA TECLA PER CONTINUAR.");
         }
         /// <summary>
         /// Es retorna el nom de l'equip a partir de la seva abreviatura
