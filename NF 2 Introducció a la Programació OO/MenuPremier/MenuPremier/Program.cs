@@ -114,6 +114,7 @@ namespace MenuPremier
 
             MsgNextScreen("PREM UNA TECLA PER CONTINUAR.");
         }
+        
         /// <summary>
         /// Es retorna el nom de l'equip a partir de la seva abreviatura
         /// </summary>
@@ -125,6 +126,18 @@ namespace MenuPremier
         {
             return "";
         }
+        
+        /// <summary>
+        /// Retorna el total de gols  fets durant tota la temporada per l'equip amb l'abreviatura paràmetre
+        /// </summary>
+        /// <param name="fileMatches">fitxer que conté tots els partits</param>
+        /// <param name="abreviatura">abreviatura de l'equip. L'abreviatura ha d'existir</param>
+        /// <returns>el total de gols fets per l'equip amb l'abreviatura donada pel paràmetre 'abreviatura'</returns>
+        public static int GetGoalsTeam(string fileMatches, string abreviatura)
+        {
+            return 0;
+        }
+        
         /// <summary>
         /// demana una abreviatura d'equip per teclat. 
         /// Si l'equip existeix, mostra el nom i els gols totals fet per l'equip en tots els seus partits.
