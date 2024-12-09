@@ -82,7 +82,7 @@ namespace MenuPremier
             String targetAvg;
             String nomEquip;
 
-            Console.Write("ENTRA EL CODI DE L'EQUIP: ");
+            Console.Write("\nENTRA EL CODI DE L'EQUIP: ");
             targetAvg = Console.ReadLine();
 
             nomEquip = GetTeam(fileTeams, targetAvg);
@@ -105,7 +105,25 @@ namespace MenuPremier
         /// si l'equip no existeix, retornem null</returns>
         public static string GetTeam(string fileTeams, string abreviatura)
         {
-            return "";
+            StreamReader fTeams;
+            string linia;
+            string abreviaturaFitxer;
+            string nomEquip = null;
+            bool trobat = false;
+
+            fTeams = new StreamReader(fileTeams);
+            linia = fTeams.ReadLine();
+            while(!trobat && linia != null)
+            {
+                abreviaturaFitxer = fTeams.ReadLine();
+                if (abreviatura == abreviaturaFitxer)
+                {
+                    trobat = true;
+                    nomEquip = linia;
+                } else linia = fTeams.ReadLine();
+            }
+
+            return nomEquip;
         }
         
         /// <summary>
