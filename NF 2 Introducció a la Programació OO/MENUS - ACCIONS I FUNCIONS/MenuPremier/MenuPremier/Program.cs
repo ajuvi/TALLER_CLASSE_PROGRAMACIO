@@ -217,7 +217,7 @@ namespace MenuPremier
             mes = data / 10000 % 100;
             any = data % 10000;
 
-            strDate = $"{dia:0:00}/{mes:0:00}/{any:0:0000}";
+            strDate = $"{dia:00}/{mes:00}/{any:0000}";
 
             if (ValidDate(dia, mes, any))
             {
