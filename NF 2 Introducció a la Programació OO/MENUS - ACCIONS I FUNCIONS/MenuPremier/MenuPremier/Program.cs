@@ -204,7 +204,52 @@ namespace MenuPremier
         /// <param name="fileMatches"></param>
         public static void DoGetMatch(string fileTeams, string fileMatches)
         {
-            Console.WriteLine("\nNOT IMPLEMENTED YED");
+            int data, dia, mes, any;
+            string strDate;
+            string abvLocal, abvVisitant;
+            string nomEquipLocal, nomEquipVisitant;
+            string infoPartit;
+
+            Console.Write("\nENTRA UNA DATA: ");
+            data = Convert.ToInt32(Console.ReadLine());
+
+            dia = data / 1000000;
+            mes = data / 10000 % 100;
+            any = data % 10000;
+
+            strDate = $"{dia:0:00}/{mes:0:00}/{any:0:0000}";
+
+            if (ValidDate(dia, mes, any))
+            {
+                Console.Write("ENTRA ABREVIATURA DE L'EQUIP LOCAL: ");
+                abvLocal = Console.ReadLine();
+                nomEquipLocal = GetTeam(fileTeams,abvLocal);
+                if (nomEquipLocal!=null)
+                {
+                    Console.WriteLine("ENTRA ABREVISTURA DE L'EQUIP VISITANT: ");
+                    abvVisitant = Console.ReadLine();
+                    nomEquipVisitant = GetTeam(fileMatches, abvVisitant);
+                    if (nomEquipVisitant != null)
+                    {
+                        //buscar la informació de l'equip
+                        infoPartit = GetMatch(fileMatches, 
+                                              abvLocal, 
+                                              nomEquipLocal, 
+                                              abvVisitant, 
+                                              nomEquipVisitant, 
+                                              strDate);
+
+                    }
+                    else
+                        Console.WriteLine($"NO EXISTEIX L'EQUIP {abvVisitant}");
+                }
+                else
+                    Console.WriteLine($"NO EXISTEIX L'EQUIP {abvLocal}");
+            }
+            else
+                Console.WriteLine("LA DATA NO ÉS VÀLIDA");
+
+
             MsgNextScreen("PREM UNA TECLA PER TORNAR AL MENÚ PRINCIPAL");
         }
 
@@ -226,7 +271,7 @@ namespace MenuPremier
 
         /// <summary>
         /// valida una data a partir del dia, mes i any donats d'acord als criteris següents:
-        /// La data ha de pertànyer al rang de dates entre 01/08/2022 i 30/04/2023, ja que és l'únic rang de dates on poden haver-hi partits
+        /// La data ha de pertànyer al rang de dates entre 01/01/2022 i 31/12/2023, ja que és l'únic rang de dates on poden haver-hi partits
         /// i la data ha de ser vàlida
         /// </summary>
         /// <param name="dia">dia del mes</param>
@@ -235,7 +280,22 @@ namespace MenuPremier
         /// <returns>true si la data és vàlida</returns>
         public static bool ValidDate(int dia, int mes, int any)
         {
-            return true;
+            bool esValid=false;
+
+            if(any>=2022 && any <= 2023)
+            {
+                if(mes>=1 && mes <= 12)
+                {
+                    if(mes==1 || mes==3 || mes== 5 || mes==7 || mes==8 || mes==10 || mes == 12)
+                        esValid = dia >= 1 && dia <= 31;
+                    else if (mes ==2)
+                        esValid = dia >= 1 && dia <= 28;
+                    else
+                        esValid = dia >= 1 && dia <= 30;
+                }
+            }
+
+
         }
 
         /// <summary>
