@@ -271,7 +271,43 @@ namespace MenuPremier
         /// Si no es troba, retornem null </returns>
         public static string GetMatch(string fileMatches, string homeTeamABV, string homeTeamName, string awayTeamABV, string awayTeamName, string data)
         {
-            return "";
+            StreamReader fMatches;
+            string linia;
+            
+            //definir les variables d'un element
+            string partitData;
+            string partitAbvLocal;
+            string partitAbvVisitant;
+            int partitGolsLocals;
+            int partitGolsVisitant;
+            bool trobat = false;
+
+            fMatches = new StreamReader(fileMatches);
+            linia = fMatches.ReadLine();
+
+            while(!trobat && linia != null)
+            {
+                //llegir l'element
+                partitData = linia;
+                partitAbvLocal = fMatches.ReadLine();
+                partitGolsLocals = Convert.ToInt32(fMatches.ReadLine());
+                partitAbvVisitant = fMatches.ReadLine();
+                partitGolsVisitant = Convert.ToInt32(fMatches.ReadLine());
+
+                IGrouping()
+
+                linia = fMatches.ReadLine();
+            }
+
+            fMatches.Close();
+
+
+            
+
+
+
+
+
         }
 
         /// <summary>
