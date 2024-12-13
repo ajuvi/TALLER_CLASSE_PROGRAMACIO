@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,7 @@ namespace MenuPremier
                         DoGetGoalsTeam(FILE_TEAMS, FILE_MATCHES);
                         break;
                     case ConsoleKey.D3:
-                        Console.WriteLine("\nNot implemented yed");
+                        DoGetMatch(FILE_TEAMS,FILE_MATCHES);
                         MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
                         break;
                     case ConsoleKey.D4:
@@ -239,6 +240,7 @@ namespace MenuPremier
                                               nomEquipVisitant, 
                                               strDate);
 
+                        Console.WriteLine(infoPartit);
                     }
                     else
                         Console.WriteLine($"NO EXISTEIX L'EQUIP {abvVisitant}");
