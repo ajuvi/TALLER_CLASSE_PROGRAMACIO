@@ -371,14 +371,25 @@ namespace MenuPremier
         /// de ser abreviatures d'equips vàlides.
         /// </summary>
         /// <param name="abreviatura">abreviatura de l'equip del qual volem saber els punts en un partit</param>
-        /// <param name="homeFileAbv">abreviatura del nom de l'equip que juga com a local. Pot coincidir amb "abreviatura"
+        /// <param name="partitAbvLocal">abreviatura del nom de l'equip que juga com a local. Pot coincidir amb "abreviatura"
         /// o pot no coincidir (en aquest cas, l'equip "abreviatura" jugaria com a visitant</param>
-        /// <param name="gHome">gols fets per l'equip local</param>
-        /// <param name="gAway">gols fets per l'equip visitant</param>
+        /// <param name="partitGolsLocal">gols fets per l'equip local</param>
+        /// <param name="partitGolsVisitant">gols fets per l'equip visitant</param>
         /// <returns></returns>
-        public static int GetPointsOfMatch(string abreviatura, string homeFileAbv, int gHome, int gAway)
+        public static int GetPointsOfMatch(string abreviatura, string partitAbvLocal, int partitGolsLocal, int partitGolsVisitant)
         {
-            return 0;
+            int punts = 0;
+
+            if (partitGolsLocal == partitGolsVisitant)
+                punts = 1;
+            else if (abreviatura == partitAbvLocal && partitGolsLocal > partitGolsVisitant)
+                punts = 3;
+            else if (abreviatura != partitAbvLocal && partitGolsLocal < partitGolsVisitant)
+                punts = 3;
+            else
+                punts = 0;
+
+            return punts;
         }
     }
 }
