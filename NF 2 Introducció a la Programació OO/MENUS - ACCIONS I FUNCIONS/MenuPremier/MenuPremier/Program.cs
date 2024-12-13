@@ -240,7 +240,10 @@ namespace MenuPremier
                                               nomEquipVisitant, 
                                               strDate);
 
-                        Console.WriteLine(infoPartit);
+                        if (infoPartit != null)
+                            Console.WriteLine(infoPartit);
+                        else
+                            Console.WriteLine("NO S'HA TROBAT CAP PARTIT");
                     }
                     else
                         Console.WriteLine($"NO EXISTEIX L'EQUIP {abvVisitant}");
