@@ -273,13 +273,14 @@ namespace MenuPremier
         {
             StreamReader fMatches;
             string linia;
+            string info = null;
             
             //definir les variables d'un element
-            string partitData;
+            string partitData ="";
             string partitAbvLocal;
             string partitAbvVisitant;
-            int partitGolsLocals;
-            int partitGolsVisitant;
+            int partitGolsLocals=0;
+            int partitGolsVisitant=0;
             bool trobat = false;
 
             fMatches = new StreamReader(fileMatches);
@@ -294,19 +295,20 @@ namespace MenuPremier
                 partitAbvVisitant = fMatches.ReadLine();
                 partitGolsVisitant = Convert.ToInt32(fMatches.ReadLine());
 
-                IGrouping()
-
-                linia = fMatches.ReadLine();
+                if (data == partitData && 
+                    homeTeamABV == partitAbvLocal && 
+                    awayTeamABV == partitAbvVisitant)
+                    trobat = true;
+                else
+                    linia = fMatches.ReadLine();
             }
 
             fMatches.Close();
 
+            if (trobat)
+                info = $"DATA: {partitData} RESULTAT: {homeTeamName} {partitGolsLocals} - {partitGolsVisitant} {awayTeamName}";
 
-            
-
-
-
-
+            return info;
 
         }
 
