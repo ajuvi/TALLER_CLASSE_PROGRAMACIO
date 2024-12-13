@@ -34,7 +34,6 @@ namespace MenuPremier
                         break;
                     case ConsoleKey.D3:
                         DoGetMatch(FILE_TEAMS,FILE_MATCHES);
-                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
                         break;
                     case ConsoleKey.D4:
                         Console.WriteLine("\nNot implemented yed");
@@ -227,9 +226,9 @@ namespace MenuPremier
                 nomEquipLocal = GetTeam(fileTeams,abvLocal);
                 if (nomEquipLocal!=null)
                 {
-                    Console.WriteLine("ENTRA ABREVISTURA DE L'EQUIP VISITANT: ");
+                    Console.Write("ENTRA ABREVISTURA DE L'EQUIP VISITANT: ");
                     abvVisitant = Console.ReadLine();
-                    nomEquipVisitant = GetTeam(fileMatches, abvVisitant);
+                    nomEquipVisitant = GetTeam(fileTeams, abvVisitant);
                     if (nomEquipVisitant != null)
                     {
                         //buscar la informació de l'equip
@@ -237,7 +236,7 @@ namespace MenuPremier
                                               abvLocal, 
                                               nomEquipLocal, 
                                               abvVisitant, 
-                                              nomEquipVisitant, 
+                                              nomEquipVisitant,
                                               strDate);
 
                         if (infoPartit != null)
@@ -306,7 +305,7 @@ namespace MenuPremier
             fMatches.Close();
 
             if (trobat)
-                info = $"DATA: {partitData} RESULTAT: {homeTeamName} {partitGolsLocals} - {partitGolsVisitant} {awayTeamName}";
+                info = $"DATA: {partitData} PARTIT: {homeTeamName} {partitGolsLocals} - {partitGolsVisitant} {awayTeamName}";
 
             return info;
 
@@ -338,7 +337,7 @@ namespace MenuPremier
                 }
             }
 
-
+            return esValid;
         }
 
         /// <summary>
