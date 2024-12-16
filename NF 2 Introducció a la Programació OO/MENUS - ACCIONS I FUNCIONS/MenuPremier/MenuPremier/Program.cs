@@ -36,8 +36,7 @@ namespace MenuPremier
                         DoGetMatch(FILE_TEAMS,FILE_MATCHES);
                         break;
                     case ConsoleKey.D4:
-                        Console.WriteLine("\nNot implemented yed");
-                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        DoGetPointsTeam(FILE_TEAMS,FILE_MATCHES);
                         break;
                     case ConsoleKey.D0:
                         Console.WriteLine("\nHAS FINALITZAT EL PROGRAMA.");
@@ -348,7 +347,25 @@ namespace MenuPremier
         /// <param name="fileMatches"></param>
         public static void DoGetPointsTeam(string fileTeams, string fileMatches)
         {
-            Console.WriteLine("\nNOT IMPLEMENTED YED");
+
+            string abreviatura;
+            string nomEquip;
+            int punts;
+
+            Console.Write("\nENTRA L'ABREVIATURA DE L'EQUIP: ");
+            abreviatura = Console.ReadLine();
+
+            nomEquip = GetTeam(fileTeams, abreviatura);
+
+            if (nomEquip != null)
+            {
+                punts = GetPointsTeam(fileMatches, abreviatura);
+                Console.WriteLine($"L'EQUIP {nomEquip} HA FET {punts} PUNTS");
+            }else
+                Console.WriteLine("NO S'HA TROBAT L'EQUIP EN EL FIXTER.");
+
+
+
             MsgNextScreen("PREM UNA TECLA PER TORNAR AL MENÚ PRINCIPAL");
         }
 
@@ -361,9 +378,40 @@ namespace MenuPremier
         /// <returns></returns>
         public static int GetPointsTeam(string fileMatches, string abreviatura)
         {
-            return 0;
-        }
+            StreamReader fMatches;
+            string linia;
+            int punts = 0;
 
+            //definir les variables d'un element
+            string partitData = "";
+            string partitAbvLocal;
+            string partitAbvVisitant;
+            int partitGolsLocals = 0;
+            int partitGolsVisitant = 0;
+
+            fMatches = new StreamReader(fileMatches);
+            linia = fMatches.ReadLine();
+
+            while (linia != null)
+            {
+                //llegir l'element
+                partitData = linia;
+                partitAbvLocal = fMatches.ReadLine();
+                partitGolsLocals = Convert.ToInt32(fMatches.ReadLine());
+                partitAbvVisitant = fMatches.ReadLine();
+                partitGolsVisitant = Convert.ToInt32(fMatches.ReadLine());
+
+                if(abreviatura == partitAbvLocal || abreviatura == partitAbvVisitant)
+                {
+                    //punts = punts + GetPointsOfMatch(abreviatura, partitAbvLocal, partitGolsLocals, partitGolsVisitant);
+                    punts += GetPointsOfMatch(abreviatura,partitAbvLocal,partitGolsLocals,partitGolsVisitant);
+                }
+
+                linia = fMatches.ReadLine();
+            }
+
+            return punts;
+        }
 
         /// <summary>
         /// abreviatura coincideix amb l'equip local (homeFileAbv) o bé és visitant. 
