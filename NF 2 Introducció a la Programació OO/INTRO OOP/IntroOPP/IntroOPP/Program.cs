@@ -14,10 +14,12 @@ namespace IntroOPP
             e2 = new Employee(101, "Neena", "Kochar", 17000);
 
             //mostrar el cognom de cada empleat
+            string cognomEmpleat1 = e1.GetLastName();
             Console.WriteLine("COGNOM EMPLEAT1: " + e1.GetLastName());
             Console.WriteLine("COGNOM EMPLEAT2: " + e2.GetLastName());
 
             //modificar la comissió de cada empleat
+            //e1.commission = 0.25;
             e1.SetCommission(0.25);
             e2.SetCommission(0.15);
 
