@@ -36,6 +36,16 @@ namespace PROJECTE_EMPRESA
 
         #region Getter and setters
 
+        public string GetLastName()
+        {
+            return this.lastName;
+        } 
+
+        public void SetCommission(double value)
+        {
+            this.commission = value;
+        }
+
         #endregion
 
         #region Mètodes
