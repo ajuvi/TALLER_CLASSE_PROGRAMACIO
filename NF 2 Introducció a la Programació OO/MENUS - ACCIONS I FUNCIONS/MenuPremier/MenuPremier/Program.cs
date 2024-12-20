@@ -38,6 +38,9 @@ namespace MenuPremier
                     case ConsoleKey.D4:
                         DoGetPointsTeam(FILE_TEAMS,FILE_MATCHES);
                         break;
+                    case ConsoleKey.D5:
+                        DoCountWinnerMatches(FILE_TEAMS, FILE_MATCHES);
+                        break;
                     case ConsoleKey.D0:
                         Console.WriteLine("\nHAS FINALITZAT EL PROGRAMA.");
                         MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
@@ -52,14 +55,76 @@ namespace MenuPremier
 
         }
 
+
+
         public static void MostrarMenu()
         {
             Console.WriteLine("1- CERCAR EQUIP");
             Console.WriteLine("2- GOLS D'UN EQUIP EN UNA TEMPORADA");
             Console.WriteLine("3- MOSTRAR RESULTAT D'UN PARTIT CONCRET");
             Console.WriteLine("4- PUNTS FETS PER UN EQUIP EN UNA TEMPORADA");
+            Console.WriteLine("5- NOMBRE DE PARTITS GUANYATS D'UN EQUIP");
+            Console.WriteLine("6- MITRJANA DE GOLS D'UN EQUIP");
             Console.WriteLine("0- EXIT");
         }
+
+        public static void DoCountWinnerMatches(string fileTeams, string fileMatches) {
+
+            string abreviatura;
+            string nomEquip;
+            int partitsGuanyats;
+
+            Console.Write("ENTRA UNA ABREVIATURA: ");
+            abreviatura = Console.ReadLine();
+
+            nomEquip = GetTeam(fileTeams, abreviatura);
+
+            if (nomEquip != null)
+            {
+                partitsGuanyats = CountWinnerMatches(abreviatura, fileMatches);
+                Console.WriteLine($"L'EQUIP {nomEquip} HA GUANYAT {partitsGuanyats} PARTITS");
+            }
+            else
+                Console.WriteLine("NO S'HA TROBAT L'EQUIP EN EL FITXER.");
+
+            MsgNextScreen("PREM UNA TECLA PER CONTINUAR.");
+        }
+
+        public static int CountWinnerMatches(string abreviatura, string fileMatches)
+        {
+            StreamReader fMatches;
+            string linia;
+            int partitGuanyats = 0;
+
+            //definir les variables d'un element
+            string partitData = "";
+            string partitAbvLocal;
+            string partitAbvVisitant;
+            int partitGolsLocals = 0;
+            int partitGolsVisitant = 0;
+
+            fMatches = new StreamReader(fileMatches);
+            linia = fMatches.ReadLine();
+
+            while (linia != null)
+            {
+                //llegir l'element
+                partitData = linia;
+                partitAbvLocal = fMatches.ReadLine();
+                partitGolsLocals = Convert.ToInt32(fMatches.ReadLine());
+                partitAbvVisitant = fMatches.ReadLine();
+                partitGolsVisitant = Convert.ToInt32(fMatches.ReadLine());
+                
+
+
+
+
+                linia = fMatches.ReadLine();
+            }
+
+            return partitGuanyats;
+        }
+
 
         /// <summary>
         /// 
