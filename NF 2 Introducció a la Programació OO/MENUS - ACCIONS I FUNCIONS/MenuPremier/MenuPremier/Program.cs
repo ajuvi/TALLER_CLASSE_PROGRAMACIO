@@ -74,7 +74,7 @@ namespace MenuPremier
             string nomEquip;
             int partitsGuanyats;
 
-            Console.Write("ENTRA UNA ABREVIATURA: ");
+            Console.Write("\nENTRA UNA ABREVIATURA: ");
             abreviatura = Console.ReadLine();
 
             nomEquip = GetTeam(fileTeams, abreviatura);
@@ -114,10 +114,10 @@ namespace MenuPremier
                 partitGolsLocals = Convert.ToInt32(fMatches.ReadLine());
                 partitAbvVisitant = fMatches.ReadLine();
                 partitGolsVisitant = Convert.ToInt32(fMatches.ReadLine());
-                
 
-
-
+                if (abreviatura == partitAbvLocal && partitGolsLocals > partitGolsVisitant ||
+                    abreviatura == partitAbvVisitant && partitGolsLocals < partitGolsVisitant)
+                    partitGuanyats = partitGuanyats + 1;
 
                 linia = fMatches.ReadLine();
             }
