@@ -94,7 +94,7 @@ namespace PROJECTE_EMPRESA
         /// <returns>Nombre d'anys treballats</returns>
         public double AnysTreballats()
         {
-            throw new NotImplementedException();
+            return (DateTime.Now - this.hireDate).TotalDays / 365.25;
         }
 
         /// <summary>
