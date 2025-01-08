@@ -10,6 +10,7 @@ namespace PROJECTE_EMPRESA
     {
 
         #region "Atributs"
+        private const string CODI_ACCES = "1234";
 
         private int id;
         private string firstName;
@@ -17,6 +18,31 @@ namespace PROJECTE_EMPRESA
         private double salary;
         private double commission;
         private DateTime hireDate;
+
+        #endregion
+
+        #region Constructors
+
+        public Employee(int id, string firstName, string lastName, 
+                        double salary, double commission, DateTime hireDate)
+        {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.salary = salary;
+            this.commission = commission;
+
+            if (hireDate.DayOfWeek == DayOfWeek.Saturday)
+                hireDate.AddDays(2);
+            else if (hireDate.DayOfWeek == DayOfWeek.Sunday)
+                hireDate.AddDays(1);
+
+            this.hireDate = hireDate;
+        }
+
+        public Employee(int id, string firstName, string lastName, double salary)
+            : this(id, firstName, lastName, salary, 0, DateTime.Now)
+        { }
 
         #endregion
 
@@ -42,24 +68,16 @@ namespace PROJECTE_EMPRESA
 
         #endregion
 
-        # region Constructors
-
-        public Employee(int id, string firstName, string lastName, double salary, double commission, DateTime hireDate)
-        {
-            this.id = id;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.salary = salary;
-            this.commission = commission;
-            this.hireDate = hireDate;
-        }
-
-        public Employee(int id, string firstName, string lastName, double salary) : this(id, firstName, lastName, salary, 0, DateTime.Now)
-        { }
-
-        #endregion
-
         #region Mètodes
+
+
+        public double GetSalary(string codiAcces)
+        {
+            if(codiAcces != CODI_ACCES)
+                throw new Exception("EL CODI D'ACCÉS ÉS INCORRECTE.");
+
+            return this.salary;
+        }
 
         /// <summary>
         /// Calcula el salari total d'un empleat a partir del salari i de la comissió.
@@ -67,7 +85,7 @@ namespace PROJECTE_EMPRESA
         /// <returns>El salari total</returns>
         public double SalariTotal()
         {
-            return salary * (1 + commission);
+            return this.salary * (1 + this.commission);
         }
 
         /// <summary>
@@ -85,7 +103,7 @@ namespace PROJECTE_EMPRESA
         /// <returns>L'empleat en format text</returns>
         public override string ToString()
         {
-            return $"{id};{firstName};{lastName};{salary};{commission};{hireDate}";
+            return $"{this.id};{this.firstName};{this.lastName};{this.commission};{this.hireDate}";
         }
 
         #endregion
