@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,27 +11,13 @@ namespace PROJECTE_ARRAYS
     {
         static void Main(string[] args)
         {
-            Random rand = new Random();
 
             int mida;
             Console.Write("ENTRA UNA MIDA: ");
             mida = Convert.ToInt32(Console.ReadLine());
 
-            int[] taula = new int[mida];
-
-            //emplenar l'array
-            for(int i = 0; i < taula.Length; i++)
-            {
-                taula[i] = rand.Next(-100, 101);
-            }
-
-            //mostrar els valors de l'array
-            Console.Write("[ ");
-            for(int i =0; i < taula.Length; i++)
-            {
-                Console.Write(taula[i] + " ");
-            }
-            Console.WriteLine("]");
+            int[] taula = GenerarTaula(mida);
+            MostrarTaula(taula);
         }
 
         public static int[] GenerarTaula(int n)
@@ -45,6 +32,15 @@ namespace PROJECTE_ARRAYS
             }
 
             return t;
+        }
+
+        public static void MostrarTaula(int[] taula)
+        {
+            for(int i = 0; i < taula.Length; i++)
+            {
+                int num = taula[i];
+                Console.WriteLine($"INDEX {i}: {num}");
+            }
         }
 
     }
