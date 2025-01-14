@@ -18,6 +18,61 @@ namespace PROJECTE_ARRAYS
 
             int[] taula = GenerarTaula(mida);
             MostrarTaula(taula);
+
+            int[] taula2 = new int[6] { 2,8,5,6,2,8};
+            
+            double mitjana = Average(taula2);
+            Console.WriteLine(mitjana);
+
+            int pos;
+            pos = IndexOf(taula2, 8);
+            Console.WriteLine($"POSICIO DEL 8: {pos}");
+            pos = IndexOf(taula2, 5);
+            Console.WriteLine($"POSICIO DEL 5: {pos}");
+            pos = IndexOf(taula2, 9);
+            Console.WriteLine($"POSICIO DEL 9: {pos}");
+
+
+        }
+        public static bool Contains(int[] t, int valor, int indexFrom, int indexTo)
+        {
+            return false;
+        }
+
+        public static bool Contains(int[] t, int valor)
+        {
+            return IndexOf(t, valor) != -1;
+        }
+
+        public static double Average(int[] t)
+        {
+            int suma = 0;
+            for(int i = 0; i < t.Length; i++)
+            {
+                suma = suma + t[i];
+            }
+
+            //falta calcular i retornar la mitjana
+            return 1.0 * suma / t.Length;
+            
+        }
+
+        public static int IndexOf(int[] t, int valor)
+        {
+            bool trobat = false;
+            int pos = 0;
+
+            while(!trobat && pos < t.Length)
+            {
+                trobat = t[pos] == valor;
+                if (!trobat) pos++;
+            }
+
+            if (trobat) 
+                return pos;
+            else 
+                return -1;
+
         }
 
         public static int[] GenerarTaula(int n)
