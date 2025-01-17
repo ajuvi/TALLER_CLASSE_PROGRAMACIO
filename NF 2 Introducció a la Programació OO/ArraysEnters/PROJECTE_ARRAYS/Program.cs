@@ -31,12 +31,62 @@ namespace PROJECTE_ARRAYS
             Console.WriteLine($"POSICIO DEL 5: {pos}");
             pos = IndexOf(taula2, 9);
             Console.WriteLine($"POSICIO DEL 9: {pos}");
-
+            Console.WriteLine(DistinctValues(taula2));
 
         }
+
+        public static List<int> GetDistinctValues(int[] t)
+        {
+            List<int> llista = new List<int>();
+            //int contador = 0;
+
+            for (int index = 0; index < t.Length; index++)
+            {
+                if (!Contains(t, t[index], 0, index - 1))
+                {
+                    //contador++;
+                }
+            }
+
+            return llista;
+        }
+
+        public static int DistinctValues(int[] t)
+        {
+            int contador = 0;
+
+            for(int index = 0; index < t.Length; index++)
+            {
+                if (!Contains(t, t[index],0,index-1))
+                {
+                    contador++;
+                }
+            }
+
+            return contador;
+        }
+
         public static bool Contains(int[] t, int valor, int indexFrom, int indexTo)
         {
-            return false;
+            int index = indexFrom;
+            bool trobat = false;
+
+            while (!trobat && index <= indexTo)
+            {
+                if (t[index] == valor)
+                {
+                    trobat = true;
+                } else
+                {
+                    index++;
+                }
+
+                //trobat = t[index] == valor;
+                //if (!trobat)
+                //    index++;
+            }
+
+            return trobat;
         }
 
         public static bool Contains(int[] t, int valor)
