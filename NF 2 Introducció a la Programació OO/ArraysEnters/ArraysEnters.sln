@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PROJECTE_ARRAYS", "PROJECTE_ARRAYS\PROJECTE_ARRAYS.csproj", "{A02FE755-A55E-4E8B-B1DD-CB8491BC15DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraysEnters", "PROJECTE_ARRAYS\ArraysEnters.csproj", "{A02FE755-A55E-4E8B-B1DD-CB8491BC15DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraysEmpleats", "ArraysEmpleats\ArraysEmpleats.csproj", "{95250FB5-56F8-4F84-B129-9A92A99D5B82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A02FE755-A55E-4E8B-B1DD-CB8491BC15DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A02FE755-A55E-4E8B-B1DD-CB8491BC15DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A02FE755-A55E-4E8B-B1DD-CB8491BC15DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95250FB5-56F8-4F84-B129-9A92A99D5B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95250FB5-56F8-4F84-B129-9A92A99D5B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95250FB5-56F8-4F84-B129-9A92A99D5B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95250FB5-56F8-4F84-B129-9A92A99D5B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
