@@ -85,7 +85,7 @@ namespace ArraysEmpleats
         {
             List<Employee> llista = new List<Employee>();
 
-            //Si l'empleat comença per startOfLastName, afegir-lo a la llista
+            //Si l'empleat comença per startOfLastName, afegir-lo a la llista d'empleats
             //llista.Add(plantilla[i]);
 
             return llista; 
