@@ -17,23 +17,22 @@ namespace ArraysEmpleats
                                   "Johnson", "López", 
                                   "Olivera", "Pagès", 
                                   "Messi", "González", 
-                                  "Ferrari", "Vesga" };
+                                  "Ferrari", "Vesga",
+                                  "Vicens","Musk"};
             
             string[] dataFirstNames = { "Manel", "Marta",
                                   "Ramon", "Laura",
                                   "Kate", "Maarten",
                                   "Lionel", "Jordi",
-                                  "Enzo", "Pol" };
+                                  "Enzo", "Pol" ,
+                                  "Roger","Elon"};
 
             Employee[] empleats = GenerarEmpleats(dataLastNames, dataFirstNames, 200);
+            ShowEmployees(empleats);
+            Console.WriteLine($"MITJANA DEL SALARI DELS EMPLEATS: {AverageOfSalaries(empleats):.00}");
 
-            for(int i = 0; i < empleats.Length; i++)
-            {
-                Console.WriteLine(empleats[i]);
-            }
 
-            
-
+         
             /*Employee[] empleats = new Employee[N];
 
             for(int i =0; i < empleats.Length; i++)
@@ -60,6 +59,28 @@ namespace ArraysEmpleats
             Console.WriteLine("SALARY empleats[0]: " + empleats[0].Salary);
             Console.WriteLine("SALARY empleats[9]: " + empleats[9].Salary);*/
 
+        }
+
+        public static double AverageOfSalaries(Employee[] plantilla)
+        {
+            double suma = 0;
+            for(int i = 0; i < plantilla.Length; i++)
+            {
+                suma = suma + plantilla[i].SalariTotal;
+            }
+
+            return suma / plantilla.Length;
+        }
+
+        public static void ShowEmployees(Employee[] plantilla)
+        {
+            Console.WriteLine($"PLANTILLA DE {plantilla.Length} EMPLEATS.");
+            Console.WriteLine("=========================================");
+            for(int i = 0; i < plantilla.Length; i++)
+            {
+                Console.WriteLine(plantilla[i]);
+            }
+            Console.WriteLine("=========================================");
         }
 
         /// <summary>
