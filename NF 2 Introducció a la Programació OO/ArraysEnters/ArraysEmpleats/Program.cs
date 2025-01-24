@@ -28,7 +28,7 @@ namespace ArraysEmpleats
 
             Employee[] empleats = new Employee[N];
 
-            /*for(int i =0; i < empleats.Length; i++)
+            for(int i =0; i < empleats.Length; i++)
             {
                 int id = i + 200;
                 string firstName = dataFirstNames[i];
@@ -36,7 +36,7 @@ namespace ArraysEmpleats
                 double salary = rand.Next(2000, 2501);
 
                 empleats[i] = new Employee(id,firstName,lastName,salary,0,DateTime.Now);
-            }*/
+            }
 
 
 
@@ -53,5 +53,8 @@ namespace ArraysEmpleats
             Console.WriteLine("SALARY empleats[9]: " + empleats[9].Salary);*/
 
         }
+
+
+
     }
 }
