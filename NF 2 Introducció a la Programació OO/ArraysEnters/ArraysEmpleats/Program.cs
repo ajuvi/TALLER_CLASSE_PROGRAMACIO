@@ -25,8 +25,16 @@ namespace ArraysEmpleats
                                   "Lionel", "Jordi",
                                   "Enzo", "Pol" };
 
+            Employee[] empleats = GenerarEmpleats(dataLastNames, dataFirstNames, 200);
 
-            Employee[] empleats = new Employee[N];
+            for(int i = 0; i < empleats.Length; i++)
+            {
+                Console.WriteLine(empleats[i]);
+            }
+
+            
+
+            /*Employee[] empleats = new Employee[N];
 
             for(int i =0; i < empleats.Length; i++)
             {
@@ -36,7 +44,7 @@ namespace ArraysEmpleats
                 double salary = rand.Next(2000, 2501);
 
                 empleats[i] = new Employee(id,firstName,lastName,salary,0,DateTime.Now);
-            }
+            }*/
 
 
 
@@ -54,6 +62,40 @@ namespace ArraysEmpleats
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lastNames"></param>
+        /// <param name="firstNames"></param>
+        /// <param name="idInicial"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception">Els arrays de noms i congnoms han de tenir la mateixa longitud</exception>
+        public static Employee[] GenerarEmpleats(string[] lastNames, 
+                                                 string[] firstNames, 
+                                                 int idInicial)
+        {
+            if (lastNames.Length != firstNames.Length)
+                throw new Exception("ELS ARRAYS HAN DE TENIR LA MATEIXA LONGITUD");
+
+            Random rand = new Random();
+            Employee[] empleats = new Employee[lastNames.Length];
+
+            for (int i = 0; i < empleats.Length; i++)
+            {
+                int id = idInicial + i;
+                string firstName = firstNames[i];
+                string lastName = lastNames[i];
+                double salary = rand.Next(2000, 2501);
+                //double commission = Math.Round(rand.NextDouble() * 0.2, 2);
+                double commission = rand.Next(0, 21) / 100.0;
+
+                empleats[i] = new Employee(id, firstName, lastName, salary, commission, DateTime.Now);
+            }
+
+
+
+            return empleats;
+        }
 
 
     }

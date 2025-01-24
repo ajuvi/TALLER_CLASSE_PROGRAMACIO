@@ -144,7 +144,7 @@ namespace ArraysEmpleats
 
         public override string ToString()
         {
-            return $"{this.id},{this.firstName},{this.lastName}";
+            return $"{this.id},{this.firstName},{this.lastName},{this.salary}";
         }
 
         public double SalaryRaise(double increment)
