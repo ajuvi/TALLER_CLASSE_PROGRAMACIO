@@ -61,6 +61,38 @@ namespace ArraysEmpleats
 
         }
 
+        public static Employee GetEmployeeById(Employee[] plantilla, int targetId)
+        {
+            Employee e = null;
+
+            // buscar l'empleat de la plantilla que tingui per Id igual a targetId
+
+
+            return e;
+        }
+
+        public static Employee GetWealthiestEmployee(Employee[] plantilla)
+        {
+            Employee e = null;
+
+            //Seleccionar l'empleat que té un salary més gran
+            //vigila que fatarà la propietat Salary!
+
+            return e;
+        }
+
+        public static List<Employee> GetEmployeesByLastName(Employee[] plantilla, string startOfLastName)
+        {
+            List<Employee> llista = new List<Employee>();
+
+            //Si l'empleat comença per startOfLastName, afegir-lo a la llista
+            //llista.Add(plantilla[i]);
+
+            return llista;
+        }
+
+
+
         public static double AverageOfSalaries(Employee[] plantilla)
         {
             double suma = 0;
