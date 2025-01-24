@@ -88,7 +88,7 @@ namespace ArraysEmpleats
             //Si l'empleat comença per startOfLastName, afegir-lo a la llista
             //llista.Add(plantilla[i]);
 
-            return llista;
+            return llista; 
         }
 
 
