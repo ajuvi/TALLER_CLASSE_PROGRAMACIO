@@ -64,8 +64,25 @@ namespace ArraysEmpleats
         public static Employee GetEmployeeById(Employee[] plantilla, int targetId)
         {
             Employee e = null;
+            bool trobat = false;
+            int pos = 0;
 
-            // buscar l'empleat de la plantilla que tingui per Id igual a targetId
+            while(!trobat && pos < plantilla.Length)
+            {
+                Employee empActual = plantilla[pos];
+                if (empActual.Id == targetId)
+                {
+                    trobat = true;
+                }
+                else
+                {
+                    pos++;              
+                }
+
+            }
+
+            // falta actualitzar el valor de la variable e si s'ha trobat l'empleat
+
 
 
             return e;
@@ -73,12 +90,25 @@ namespace ArraysEmpleats
 
         public static Employee GetWealthiestEmployee(Employee[] plantilla)
         {
-            Employee e = null;
+            Employee empleatMaxSalari = null;
 
+            //recorregut
+            for(int pos = 0; pos < plantilla.Length; pos++)
+            {
+
+                if (pos == 0)
+                    empleatMaxSalari = plantilla[pos];
+                else
+                {
+                    //comparar els dos empleats
+                    //si l'empleat té major salary, assignar el nou empleat
+                }
+                
+            }
             //Seleccionar l'empleat que té un salary més gran
             //vigila que fatarà la propietat Salary!
 
-            return e;
+            return empleatMaxSalari;
         }
 
         public static List<Employee> GetEmployeesByLastName(Employee[] plantilla, string startOfLastName)

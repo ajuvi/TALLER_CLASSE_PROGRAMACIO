@@ -47,6 +47,14 @@ namespace ArraysEmpleats
 
         #region Propietats
 
+        public int Id
+        {
+            get
+            {
+                return this.id;
+            }
+        }
+
         public double Salary
         {
             get 
