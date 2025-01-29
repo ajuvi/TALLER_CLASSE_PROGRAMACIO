@@ -37,7 +37,19 @@ namespace INVENTARI
         /// </summary>
         public void CarregarInventari()
         {
-            throw new NotImplementedException();
+            /*StreamReader sr = new StreamReader("INVENTARI.CSV");
+            string[] parts;
+            string linia;
+            sr.ReadLine(); //llegir la capçalera
+            linia = sr.ReadLine(); //llegir la primera línia amb informació
+            while (linia != null)
+            {
+                parts = linia.Split(';'); //converteix la línia en un array
+                id = Convert.ToInt32(parts[0]);
+                nom = parts[1];
+                ...
+                linia = sr.ReadLine();
+            }*/
         }
 
         /// <summary>
