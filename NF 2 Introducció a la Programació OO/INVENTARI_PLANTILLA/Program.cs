@@ -26,6 +26,14 @@ namespace INVENTARI
                         DoCarregarProductes(inventari);
                         MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
                         break;
+                    case ConsoleKey.D2:
+                        DoLlistarProductes(inventari);
+                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        break;
+                    case ConsoleKey.D3:
+                        DoAfegirProducte(inventari);
+                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        break;
 
                     //FALTA ACABAR D'IMPLEMENTAR LES ALTRES OPCIONS DEL MENÚ
 
@@ -49,7 +57,14 @@ namespace INVENTARI
         /// <param name="inventari"></param>
         private static void DoCarregarProductes(Inventari inventari)
         {
-            throw new NotImplementedException();
+            try
+            {
+                inventari.CarregarInventari();                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         /// <summary>
@@ -58,7 +73,7 @@ namespace INVENTARI
         /// <param name="inventari"></param>
         private static void DoLlistarProductes(Inventari inventari)
         {
-            throw new NotImplementedException();
+            inventari.LlistarProductes();
         }
 
         /// <summary>
@@ -68,7 +83,40 @@ namespace INVENTARI
         /// <param name="inventari"></param>
         private static void DoAfegirProducte(Inventari inventari)
         {
-            throw new NotImplementedException();
+            try
+            {
+                int id;
+                string nom;
+                int quantitat;
+                double preu;
+                string categoria;
+
+                Console.Write("ID PRODUCTE: ");
+                id = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("NOM PRODUCTE: ");
+                nom = Console.ReadLine();
+
+                Console.Write("QUANTITAT: ");
+                quantitat = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("PREU: ");
+                preu = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("CATEGORIA: ");
+                categoria = Console.ReadLine();
+
+                Producte p = new Producte(id, nom, preu, quantitat, categoria);
+
+                inventari.AfegirProducte(p);
+
+                Console.WriteLine("S'HA AFEGIT EL PRODUCTE:");
+                Console.WriteLine(p);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace INVENTARI
         /// </summary>
         public void CarregarInventari()
         {
-            /*StreamReader sr = new StreamReader("INVENTARI.CSV");
+            StreamReader sr = new StreamReader("INVENTARI.CSV");
             string[] parts;
             string linia;
             sr.ReadLine(); //llegir la capçalera
@@ -45,11 +45,19 @@ namespace INVENTARI
             while (linia != null)
             {
                 parts = linia.Split(';'); //converteix la línia en un array
-                id = Convert.ToInt32(parts[0]);
-                nom = parts[1];
-                ...
+                int id = Convert.ToInt32(parts[0]);
+                string nom = parts[1];
+                double preu = Convert.ToDouble(parts[2]);
+                int quantitat = Convert.ToInt32(parts[3]);
+                string categoria = parts[4];
+
+                Producte nouP = new Producte(id, nom, preu, quantitat, categoria);
+
+                productes[nElem] = nouP;
+                nElem++;
+
                 linia = sr.ReadLine();
-            }*/
+            }
         }
 
         /// <summary>
@@ -58,7 +66,13 @@ namespace INVENTARI
         /// </summary>
         public void LlistarProductes()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"PRODUCTES MAGATZEM: {this.nElem}");
+            Console.WriteLine("------------------------");
+
+            for (int i = 0; i < nElem; i++)
+            {
+                Console.WriteLine(productes[i]);
+            }
         }
 
         /// <summary>
