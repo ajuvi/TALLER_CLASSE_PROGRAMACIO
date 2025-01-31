@@ -21,13 +21,18 @@ namespace INVENTARI
         }
 
         /// <summary>
-        /// Obtenir la suma del ValorTotal de tots els productes del magatzem.
+        /// Obtenir la suma del ValorTotal de 
+        /// tots els productes del magatzem.
         /// </summary>
         public double ValorTotal
         {
             get
             {
-                throw new NotImplementedException();
+                double total = 0;
+
+                //recorrer tots els productes i anar sumant el valor total de cada producte
+
+                return total;
             }
         }
 
@@ -84,6 +89,7 @@ namespace INVENTARI
         /// o bé retorna un null si el producte no existeix.</returns>
         public Producte GetProducteById(int id)
         {
+            //és una cerca
             throw new NotImplementedException();
         }
 
@@ -97,7 +103,16 @@ namespace INVENTARI
         /// retorna fals</returns>
         public bool ExisteixProducte(int id)
         {
-            throw new NotImplementedException();
+            //bool existeix;
+
+            //if (GetProducteById(id) == null)
+            //    existeix = false;
+            //else
+            //    existeix = true;
+
+            //return existeix;
+
+            return GetProducteById(id) != null;
         }
 
         /// <summary>
@@ -108,7 +123,12 @@ namespace INVENTARI
         /// <exception cref="Exception">El codi de producte ja existeix al magatzem</exception>
         public void AfegirProducte(Producte nouProducte)
         {
-            throw new NotImplementedException();
+            if (ExisteixProducte(nouProducte.Id))
+                throw new Exception("NO ES POT AFEGIR EL PRODUCTE DONCS EL CODI DE\r\nPRODUCTE ESTÀ REPETIT.");
+                        
+             //afegir el producte a darrera de l'últim producte
+             //incrementar nElem perquè hi ha un producte més a l'array
+
         }
 
         /// <summary>
@@ -119,6 +139,14 @@ namespace INVENTARI
         /// <exception cref="Exception">Es genera un error si el codi del producte no existeix.</exception>
         public void AfegirQuantitat(int id, int increment)
         {
+            Producte p = GetProducteById(id);
+            if (p == null)
+            {
+                throw new Exception("EL PRODUCTE A AFEGIR UNA QUANTIAT D'ESTOC NO EXISTEIX");
+            }
+
+            //incrementar la quantitat del producte p
+
             throw new NotImplementedException();
         }
 
@@ -128,7 +156,16 @@ namespace INVENTARI
         /// <returns></returns>
         public override string ToString()
         {
-            throw new NotImplementedException();
+            string str;
+            str = "Id;Num;Preu;Quantitat;Tipus\n";
+
+            //recorrer tots els productes i afegir les linia a str
+            //for
+                //str += $"{};{};{};{};{}"
+
+
+            return str;
+
         }
 
         /// <summary>

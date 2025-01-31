@@ -37,6 +37,14 @@ namespace INVENTARI
 
                     //FALTA ACABAR D'IMPLEMENTAR LES ALTRES OPCIONS DEL MENÚ
 
+                    case ConsoleKey.D5:
+                        DoActualitzarEstoc(inventari);
+                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        break;
+                    case ConsoleKey.D6:
+                        DoValorTotalEstoc(inventari);
+                        MsgNextScreen("PREM UNA TECLA PER CONTINUAR");
+                        break;
                     case ConsoleKey.D0:
                         DoGuardarInventari(inventari);
                         Console.WriteLine("\nHAS FINALITZAT EL PROGRAMA.");
@@ -129,13 +137,27 @@ namespace INVENTARI
         }
 
         /// <summary>
-        /// Procediment que demana a l'usuari el codi d'un producte i una quantitat a afegir d'estoc.
+        /// Procediment que demana a l'usuari el codi d'un producte 
+        /// i una quantitat a afegir d'estoc.
         /// El procediment afegeix la quantitat d'estoc al producte.
         /// </summary>
         /// <param name="inventari"></param>
         private static void DoActualitzarEstoc(Inventari inventari)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Console.Write("ENTRA EL CODI DEL PRODUCTE: ");
+                int codi = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("ENTRA LA QUANTITAT DEL PRODUCTE: ");
+                int quantitat = Convert.ToInt32(Console.ReadLine());
+
+                inventari.AfegirQuantitat(codi, quantitat);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         /// <summary>
@@ -144,7 +166,7 @@ namespace INVENTARI
         /// <param name="inventari"></param>
         private static void DoValorTotalEstoc(Inventari inventari)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"VALOR TOTAL DE L'ESTOC: {inventari.ValorTotal} EUROS");
         }
 
         /// <summary>
