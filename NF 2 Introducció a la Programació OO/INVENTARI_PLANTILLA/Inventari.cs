@@ -179,11 +179,18 @@ namespace INVENTARI
         }
 
         /// <summary>
-        /// Guarda les dades del producte al fitxer FILE_NAME. Primer has d'escriure la capçalera del 
-        /// fitxer csv i després escriure tots els productes del magatzem.
+        /// Guarda les dades del producte al fitxer FILE_NAME. 
+        /// Primer has d'escriure la capçalera del 
+        /// fitxer csv i després escriure tots els 
+        /// productes del magatzem.
         /// </summary>
         public void GuardarInventari()
         {
+
+            //StreamWriter
+
+            //què el this?
+
             throw new NotImplementedException();
         }
 

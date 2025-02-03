@@ -128,7 +128,8 @@ namespace INVENTARI
         }
 
         /// <summary>
-        /// El procediment demana el codi de producte i l'elimina de l'inventari.
+        /// El procediment demana el codi de producte i 
+        /// l'elimina de l'inventari.
         /// </summary>
         /// <param name="inventari"></param>
         private static void DoEliminarProducte(Inventari inventari)
@@ -176,6 +177,15 @@ namespace INVENTARI
         /// <param name="inventari"></param>
         private static void DoGuardarInventari(Inventari inventari)
         {
+
+            //creu que fa falta un try catch????
+
+            //demanar a l'usuari si es vol guardar l'inventari
+                //si -> si vol guardar
+                //no -> no vol guardar
+
+
+
             throw new NotImplementedException();
         }
 
