@@ -20,6 +20,60 @@ namespace INVENTARI
             productes = new Producte[MAX_PRODUCTES];
         }
 
+        public int Count
+        {
+            get {
+                return nElem;
+            }
+        }
+
+        public int IndexOf(int targetId)
+        {
+            bool trobat = false;
+            int pos = 0;
+
+            while (!trobat && pos < nElem)
+            {
+                if (productes[pos].Id == targetId)
+                    trobat = true;
+                else
+                    pos++;
+            }
+
+            if (!trobat) pos = -1;
+
+            return pos;
+
+            //if (trobat)
+            //    return pos;
+            //else
+            //  return -1;
+        }
+
+        public void ModificarProducte(Producte p)
+        {
+            int pos = IndexOf(p.Id);
+
+            if (pos == -1)
+                throw new Exception("NO EXISTEIX EL PRODUCTE A MODIFICAR.");
+
+            productes[pos] = p;
+        }
+
+        public Producte[] ToArray()
+        {
+            Producte[] productes2 = new Producte[nElem];
+
+            for(int i =0; i < nElem; i++)
+            {
+                productes2[i] = productes[i];
+            }
+
+            return productes2;
+
+        }
+
+
         /// <summary>
         /// Obtenir la suma del ValorTotal de 
         /// tots els productes del magatzem.
