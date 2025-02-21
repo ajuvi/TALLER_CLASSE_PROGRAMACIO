@@ -14,6 +14,15 @@ namespace INTERFACES
         private double commission;
         private DateTime hireDate;
 
+        public Employee(string firstName, string lastName, double salary, double commission, DateTime hireDate)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.salary = salary;
+            this.commission = commission;
+            this.hireDate = hireDate;
+        }
+
         public string FirstName { 
             get => firstName; 
             set => firstName=value; 
@@ -46,5 +55,11 @@ namespace INTERFACES
         {
             Console.WriteLine($"Nom: {firstName}, Sou: {Salary}€, Experiencia: { AnysTreballats } anys, Bonbificació: {CalculateBonus(0.05)}€");
         }
+
+        public void MostrarSalary()
+        {
+            Console.WriteLine($"EL SALARI DE {lastName} ES {salary}");
+        }
+
     }
 }
