@@ -17,6 +17,12 @@ namespace Ex7
             Console.WriteLine(str + "]");
 
             //Crear una cadena de numeros amb StringBuilder
+            StringBuilder sb = new StringBuilder("[");
+            for (int i = 0; i < 10; i++) sb.Append(i).Append(';');
+            sb.Remove(sb.Length - 1, 1);
+            sb.Append("]");
+            Console.WriteLine(sb.ToString());
+
 
         }
     }
