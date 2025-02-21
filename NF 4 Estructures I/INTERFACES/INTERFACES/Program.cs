@@ -21,7 +21,7 @@ namespace INTERFACES
             eJordi.MostrarSalary();
             eArtur.MostrarSalary();
 
-            //eAngel no pot accedir al mètode MostrarSalary
+            //IEmployee eAngel no pot accedir al mètode MostrarSalary
             //eAngel.MostrarSalary();
 
             ((Employee)eAngel).MostrarSalary();
