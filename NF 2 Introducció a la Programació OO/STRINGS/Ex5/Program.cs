@@ -11,7 +11,8 @@ namespace Ex5
         static void Main(string[] args)
         {
             String linia = "Lionel;Messi;24/06/1987;67;1,7";
-            char inicialCognom = linia.Split(';')[1][0];
+            String[] parts = linia.Split(';');
+            char inicialCognom = parts[1][0];
 
             Console.WriteLine($"PRIMER CARACTER: {inicialCognom}");
         }
