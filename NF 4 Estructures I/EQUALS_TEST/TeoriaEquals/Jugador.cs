@@ -29,5 +29,11 @@ namespace NOT_EQUALS
         public DateTime DataNaix { get => dataNaix; set => dataNaix = value; }
         public double Alçada { get => alçada; set => alçada = value; }
         public double Pes { get => pes; set => pes = value; }
+
+        /*public override bool Equals(object? obj)
+        {
+            return base.Equals(obj);
+        }*/
+
     }
 }

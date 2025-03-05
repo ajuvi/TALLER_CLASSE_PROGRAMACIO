@@ -32,11 +32,20 @@ namespace EQUALS
 
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
+            if (obj == null)
                 return false;
 
-            Jugador altre = (Jugador)obj;
-            return dni.Equals(altre.dni);
+            if (!(obj is Jugador))
+                return false;
+
+            if (Object.ReferenceEquals(this, obj))
+                return true;
+
+            //Jugador other = (Jugador)obj;
+            //return this.dni==altre.dni;
+
+            Jugador other = obj as Jugador;
+            return this.dni.Equals(other.dni);
         }
 
     }
