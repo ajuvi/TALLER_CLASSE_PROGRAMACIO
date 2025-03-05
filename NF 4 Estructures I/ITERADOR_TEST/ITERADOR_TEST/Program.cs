@@ -12,6 +12,19 @@ namespace ITERADOR_TEST
         static void Main(string[] args)
         {
 
+            foreach(int num in NextValue(0, 10))
+            {
+                Console.Write(num + " ");
+            }
+
+            Console.WriteLine();
+
+            IEnumerator<int> iterador = NextValue(0, 10).GetEnumerator();
+            while (iterador.MoveNext())
+            {
+                Console.Write(iterador.Current + " ");
+            }
+
         }
 
         public static IEnumerable<int> NextValue(int inici, int final)
@@ -20,7 +33,7 @@ namespace ITERADOR_TEST
                 throw new Exception();
 
             int num = inici;
-            while (num<=final)
+            while (num<final)
             {
                 num++;
                 yield return num;

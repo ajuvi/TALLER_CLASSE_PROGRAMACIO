@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace POKEMONS
 {
-    public class TaulaLlista<T> : ICollection<T>
+    public class TaulaLlista<T> : ICollection<T>, IEnumerable<T>
     {
         const int LONGITUD_INICIAL = 10;
         private T[] dades;
@@ -97,13 +97,7 @@ namespace POKEMONS
             throw new NotImplementedException();
         }
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            for (int i = 0; i < nElem; i++)
-            {
-                yield return dades[i];
-            }
-        }
+
 
         public bool Remove(T item)
         {
@@ -123,6 +117,14 @@ namespace POKEMONS
             }
 
             return index != -1;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < nElem; i++)
+            {
+                yield return dades[i];
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
