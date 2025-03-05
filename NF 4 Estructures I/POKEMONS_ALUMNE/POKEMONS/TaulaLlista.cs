@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +27,7 @@ namespace POKEMONS
             for (int i = 0; i < nElem; i++)
                 dades2[i] = dades[i];
 
-            dades = dades2;
+            this.dades = dades2;
         }
 
         private int IndexOf(T item)
@@ -80,12 +81,15 @@ namespace POKEMONS
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            if (IsReadOnly) throw new NotSupportedException();
+
+            this.dades = new T[LONGITUD_INICIAL];
+            nElem = 0;
         }
 
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            return IndexOf(item) != -1;
         }
 
         public void CopyTo(T[] array, int arrayIndex)
@@ -95,17 +99,35 @@ namespace POKEMONS
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < nElem; i++)
+            {
+                yield return dades[i];
+            }
         }
 
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            if (this.IsReadOnly) 
+                throw new NotSupportedException();
+
+            int index = IndexOf(item);
+
+            if(index != -1)
+            {
+                for (int i = index; i < nElem - 2; i++)
+                {
+                    dades[i] = dades[i + 1];
+                }
+                dades[nElem] = default;
+                nElem--;
+            }
+
+            return index != -1;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
