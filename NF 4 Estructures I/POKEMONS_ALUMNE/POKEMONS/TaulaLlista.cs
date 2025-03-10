@@ -8,17 +8,12 @@ using System.Threading.Tasks;
 
 namespace POKEMONS
 {
-    public class TaulaLlista<T> : ICollection<T>, IEnumerable<T>
+    public class TaulaLlista<T> : IList<T>
     {
         const int LONGITUD_INICIAL = 10;
         private T[] dades;
         private int nElem;
 
-        public TaulaLlista()
-        {
-            nElem = 0;
-            dades = new T[LONGITUD_INICIAL];
-        }
         private void DoubleCapacity()
         {
             int longitud = dades.Length * 2;
@@ -30,7 +25,7 @@ namespace POKEMONS
             this.dades = dades2;
         }
 
-        private int IndexOf(T item)
+        public int IndexOf(T item)
         {
             int index = 0;
             bool trobat = false;
@@ -60,6 +55,21 @@ namespace POKEMONS
             {
                 return false;
             }
+        }
+
+        public T this[int index] { 
+            get
+            {
+                //if (!(index >= 0 && index < nElem))
+                if (index < 0 || index >= nElem)
+                    throw new ArgumentOutOfRangeException();
+
+                return this.dades[index];
+            } 
+            set 
+            {
+            
+            } 
         }
 
         public void Add(T item)
@@ -130,6 +140,16 @@ namespace POKEMONS
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public void Insert(int index, T item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveAt(int index)
+        {
+            throw new NotImplementedException();
         }
     }
 }
