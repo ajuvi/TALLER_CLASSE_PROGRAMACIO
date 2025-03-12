@@ -68,7 +68,15 @@ namespace POKEMONS
             } 
             set 
             {
-            
+                if(IsReadOnly)
+                    throw new NotSupportedException();
+
+                if (index < 0 || index >= nElem)
+                    throw new ArgumentOutOfRangeException();
+
+                //assignar value a la posició index 
+
+
             } 
         }
 
@@ -144,12 +152,37 @@ namespace POKEMONS
 
         public void Insert(int index, T item)
         {
-            throw new NotImplementedException();
+            //1. Generar error si la llista és de només lectura
+
+            //2. Comoprovar que l'index sigui vàlid
+
+            //3. Comprovar que la llista no estigui plena
+            //  si està plena duplicar la capacitat
+                   
+            //4. moure una posició tots els element de la llista a partir de la posició index
+
+            //5. posar el l'item a la posició de l'index
         }
 
         public void RemoveAt(int index)
         {
-            throw new NotImplementedException();
+            if (IsReadOnly) 
+                throw new NotSupportedException();
+
+            if (index < 0 || index >= nElem)
+                throw new ArgumentOutOfRangeException();
+
+            for(int i = index; i < nElem - 1; i++)
+            {
+                dades[i] = dades[i + 1];
+            }
+
+            nElem--;
+
+            dades[nElem] = default;
+
+            
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using POKEMONS.MODEL;
+﻿using POKEMONS.INFRAESRUCTURA;
+using POKEMONS.MODEL;
+using System.ComponentModel.Design;
 
 namespace POKEMONS
 {
@@ -39,6 +41,10 @@ namespace POKEMONS
                         DoDeletePokemonList(pokemons);
                         NextScreen("\nPREM UNA TECLA PER CONTINUAR...");
                         break;
+                    case ConsoleKey.D6:
+                        DoCarregarPokemons(pokemons);
+                        NextScreen("\nPREM UNA TECLA PER CONTINUAR...");
+                        break;
                     case ConsoleKey.D0:
                         NextScreen("\nGOODBYE!");
                         break;
@@ -51,6 +57,30 @@ namespace POKEMONS
 
             } while (op != 0);
             
+        }
+
+        private static void DoCarregarPokemons(TaulaLlista<Pokemon> pokes)
+        {
+            //eliminem tots els pokemons
+            pokes.Clear();
+            
+            //crear el proveidor de pokemons
+            PokemonProvider provide = new PokemonProvider();
+
+            //afegir els pokemons a la nostra llista
+            IEnumerable<Pokemon> coleccio = provide.GetAll();
+
+            /*foreach(Pokemon p in coleccio)
+            {
+                pokes.Add(p);
+            }*/
+
+            //pokes.AddRange(coleccio);
+
+
+
+
+
         }
 
         /// <summary>
@@ -132,6 +162,7 @@ namespace POKEMONS
             Console.WriteLine("3. LLISTAR POKEMONS (ITERADOR)");
             Console.WriteLine("4. ELIMINAR UN POKEMON");
             Console.WriteLine("5. ELIMINAR TOTS ELS POKEMONS");
+            Console.WriteLine("6. CARREGAR POKEMONS");
             Console.WriteLine("0. SORTIR");
             Console.WriteLine();
         }
