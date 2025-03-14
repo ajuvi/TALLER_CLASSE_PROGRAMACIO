@@ -26,7 +26,11 @@ namespace POKEMONS
             }
         }
 
-        object IEnumerator.Current => throw new NotImplementedException();
+        object IEnumerator.Current {
+            get {
+                return this.Current;
+            }
+        }
 
         public bool MoveNext()
         {
