@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Instrumentation;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,34 +13,68 @@ namespace PILA
     {
         const int DEFAULT_SIZE = 5;
         private T[] data;
-        int top = -1;
+        private int top;
         
         public Pila()
-        {}
+        {
+            top = -1;
+            this.data = new T[DEFAULT_SIZE];
+        }
         public Pila(int capacity)
-        {}
+        {
+            if (capacity < 0)
+                throw new ArgumentOutOfRangeException();
+
+            top = -1;
+            this.data = new T[capacity];
+        }
 
         public Pila(IEnumerable<T> items)
-        {}
+        {
+            if (items == null)
+                throw new ArgumentNullException();
+
+            //HO FAREM QUAN TINGUEM EL MÈTODE
+            //EnsureCapacity
+
+        }
 
         public T this[int index]
         {
             get
             {
-                throw new NotImplementedException();
+                if (index < 0 || index > top)
+                    throw new ArgumentOutOfRangeException();
+
+                return data[index];
             }
         }
 
-        public int Count => throw new NotImplementedException();
-
-        public bool IsReadOnly => throw new NotImplementedException();
-
-        public void Add(T item)
+        public int Count
         {
-            throw new NotImplementedException();
+            get {
+                return top + 1;
+            }
+        }
+
+        public bool IsReadOnly
+        {
+            get {
+                return false;
+            }
         }
 
         public void Clear()
+        {
+            //for (int i = 0; i < Count; i++)
+            //    data[i] = default;
+
+            data = new T[data.Length];
+
+            top = -1;
+        }
+
+        public void Add(T item)
         {
             throw new NotImplementedException();
         }
