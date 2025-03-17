@@ -39,6 +39,28 @@ namespace PILA
 
         }
 
+        public bool IsEmpty
+        {
+            get
+            {
+                //return top < 0;
+                return top == -1;
+
+                /*if (top < 0)
+                    return true;
+                else
+                    return false;
+                */
+            }
+        }
+
+        public bool IsFull
+        {
+            get
+            {
+                
+            }
+        }
         public T this[int index]
         {
             get
