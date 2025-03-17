@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Instrumentation;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,7 @@ namespace PILA
         {
             get
             {
-                
+                return top == data.Length-1;
             }
         }
         public T this[int index]
@@ -79,6 +80,11 @@ namespace PILA
             }
         }
 
+        public int Capacity
+        {
+            get { return this.data.Length; }
+        }
+
         public bool IsReadOnly
         {
             get {
@@ -94,6 +100,64 @@ namespace PILA
             data = new T[data.Length];
 
             top = -1;
+        }
+
+        public T Pop()
+        {
+            if (this.IsEmpty)
+                throw new InvalidOperationException();
+
+            T valor;
+            valor = data[top];
+            data[top] = default;
+            top--;
+
+            return valor;
+        }
+        public T Peek()
+        {
+            if (this.IsEmpty)
+                throw new InvalidOperationException();
+
+            return data[top];
+
+        }
+
+        public void Push(T item)
+        {
+            if (IsFull)
+                throw new StackOverflowException();
+
+            //data[++top] = item;
+
+            top++;
+            data[top] = item;
+        }
+
+        public T[] ToArray()
+        {
+            throw new Exception();
+        }
+
+        public int EnsureCapacity(int newCapacity)
+        {
+            //mirar si la nova capacitat és major que l'actual
+            if(this.Capacity < newCapacity) {
+                //si la nova capacitat és major
+
+                //crear un nou array amb la nova capacitat
+                T[] data2 = new T[newCapacity];
+
+                //copiar les dades al array
+                for (int i = 0; i < this.Count; i++)
+                    data2[i] = this.data[i];
+
+                //assignar el nou array a la variable data de la pila
+                this.data = data2;
+            }
+
+            //retorna la capacitat actual de la pila
+            return this.Capacity;
         }
 
         public void Add(T item)
