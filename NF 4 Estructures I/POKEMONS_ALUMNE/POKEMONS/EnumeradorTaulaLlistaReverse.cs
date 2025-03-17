@@ -9,17 +9,42 @@ namespace POKEMONS
 {
     internal class EnumeradorTaulaLlistaReverse<T> : IEnumerator<T>
     {
-        public T Current => throw new NotImplementedException();
 
-        object IEnumerator.Current => throw new NotImplementedException();
+        private T[] dades;
+        private int nElem;
+        private int posicio;
+        public EnumeradorTaulaLlistaReverse(T[] dades, int nElem)
+        {
+            this.dades = dades;
+            this.nElem = nElem;
+            this.posicio =nElem;
+        }
+        public T Current
+        {
+            get
+            {
+                return dades[posicio];
+            }
+
+        }
+
+        object IEnumerator.Current {
+            get
+            {
+                return this.Current;
+            }
+        }
 
         public bool MoveNext()
         {
-            throw new NotImplementedException();
+            posicio--;
+
+            return posicio >= 0 && posicio < nElem;
         }
 
         public void Reset()
         {
+            posicio = nElem;
         }
         public void Dispose()
         {

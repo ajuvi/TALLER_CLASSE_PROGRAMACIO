@@ -150,7 +150,8 @@ namespace POKEMONS
                 yield return dades[i];
             }*/
 
-            return new EnumeradorTaulaLlista<T>(dades,nElem);
+            //return new EnumeradorTaulaLlista<T>(dades,nElem);
+            return new EnumeradorTaulaLlistaReverse<T>(dades, nElem);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
