@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Management.Instrumentation;
 using System.Net.NetworkInformation;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PILA
 {
-    internal class Pila<T>:ICollection<T>
+    public class Pila<T>:ICollection<T>
     {
         const int DEFAULT_SIZE = 5;
         private T[] data;
@@ -37,7 +38,14 @@ namespace PILA
 
             //HO FAREM QUAN TINGUEM EL MÈTODE
             //EnsureCapacity
+            this.data = new T[DEFAULT_SIZE];
+            this.top = -1;
 
+            foreach (T item in items)
+            {
+                if (this.IsFull) this.EnsureCapacity(this.Count*2);
+                this.Push(item);
+            }
         }
 
         public bool IsEmpty
@@ -125,7 +133,7 @@ namespace PILA
 
         public void Push(T item)
         {
-            if (IsFull)
+            if (this.IsFull)
                 throw new StackOverflowException();
 
             //data[++top] = item;
@@ -177,7 +185,7 @@ namespace PILA
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new EnumeradorPila<T>(data,top);
         }
 
         public bool Remove(T item)
@@ -189,5 +197,45 @@ namespace PILA
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("[");
+
+            foreach(T item in this)
+            {
+                sb.Append(item).Append(",");
+            }
+
+            if (!this.IsEmpty)
+                sb.Remove(sb.Length - 1, 1);
+
+            sb.Append("]");
+
+            return sb.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            bool iguals = true;
+
+            if (obj == null || !(obj is Pila<T>))
+                iguals = false;
+
+            Pila<T> other = (Pila<T>)obj;
+
+            if (this.Count != other.Count)
+                iguals = false;
+
+            int i = 0;
+            while(iguals && i < this.Count)
+            {
+                iguals = this[i].Equals(other[i]);
+            }
+
+            return iguals;
+        }
+
     }
 }
