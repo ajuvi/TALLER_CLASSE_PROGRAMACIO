@@ -43,9 +43,31 @@ namespace TaulaLlistaDinamica
 
         public T this[int index]
         {
-            get { throw new NotImplementedException(); }
+            get {
+                if (index < 0 || index > this.Count)
+                    throw new IndexOutOfRangeException();
 
-            set { throw new NotImplementedException(); }
+                Node nodeActual=head;
+                for(int i = 0; i < index; i++)
+                {
+                    nodeActual = nodeActual.Next;
+                }
+
+                return nodeActual.Data;
+            }
+
+            set {
+                if (index < 0 || index > this.Count)
+                    throw new IndexOutOfRangeException();
+
+                Node nodeActual = head;
+                for (int i = 0; i < index; i++)
+                {
+                    nodeActual = nodeActual.Next;
+                }
+
+                nodeActual.Data = value;
+            }
         }
 
         public int Count {
@@ -78,15 +100,13 @@ namespace TaulaLlistaDinamica
             {
                 head = nouNode;
                 tail = nouNode;
-                nElem++;
+                nElem = 1;
             } else
             {
                 //afegir el node al final de la llista
-
-
-
+                tail.Next = nouNode;
+                tail = nouNode;
             }
-
         }
 
         public bool Contains(T item)
