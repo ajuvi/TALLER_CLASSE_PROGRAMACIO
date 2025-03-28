@@ -106,6 +106,7 @@ namespace TaulaLlistaDinamica
                 //afegir el node al final de la llista
                 tail.Next = nouNode;
                 tail = nouNode;
+                nElem++;
             }
         }
 
@@ -128,7 +129,10 @@ namespace TaulaLlistaDinamica
         }
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            for(int i = 0; i < Count; i++)
+            {
+                yield return this[i];
+            }
         }
         public int IndexOf(T item)
         {
@@ -273,7 +277,43 @@ namespace TaulaLlistaDinamica
         }
         public override string ToString()
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("[");
+
+            Node nodeActual = head;
+            while (nodeActual != null)
+            {
+                sb.Append(nodeActual.Data);
+                sb.Append(",");
+
+                nodeActual = nodeActual.Next;
+            }
+
+            if (!this.Empty)
+                sb.Remove(sb.Length - 1, 1);
+
+            sb.Append("]");
+
+            return sb.ToString();
+
+            /*
+            CODI MOLT I MOLT INEFICIENT
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("[");
+
+            for(int i = 0; i < Count; i++)
+            {
+                sb.Append(this[i].ToString());
+                sb.Append(",");
+            }
+
+            if (!this.Empty)
+                sb.Remove(sb.Length-1,1);
+
+            sb.Append("]");
+
+            return sb.ToString();*/
         }
 
     }
