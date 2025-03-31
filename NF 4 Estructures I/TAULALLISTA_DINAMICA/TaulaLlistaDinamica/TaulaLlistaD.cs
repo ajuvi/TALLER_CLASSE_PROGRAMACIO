@@ -129,10 +129,34 @@ namespace TaulaLlistaDinamica
         }
         public IEnumerator<T> GetEnumerator()
         {
+            Node nodeActual = head;
+
+            for(int i = 0; i < Count; i++)
+            {
+                yield return nodeActual.Data;
+                nodeActual = nodeActual.Next;
+            }
+
+            /*
+            CORRECTE, FET AMB EL WHILE
+            
+            Node nodeActual = head;
+
+            while (nodeActual != null)
+            {
+                yield return nodeActual.Data;
+                nodeActual = nodeActual.Next;
+            }
+            */
+
+            /*
+            CODI MOLT MOLT INEFICIENT 
+             
             for(int i = 0; i < Count; i++)
             {
                 yield return this[i];
             }
+            */
         }
         public int IndexOf(T item)
         {
@@ -163,29 +187,29 @@ namespace TaulaLlistaDinamica
 
             if (this.Empty)
             {
-                this.head = nouNode;
-                this.tail = nouNode;
-            }
-            else if (index == 0)
+                head = nouNode;
+                tail = nouNode;
+            } else if (index == 0)
             {
                 nouNode.Next = head;
                 head = nouNode;
-            } else if (index == nElem)
+            } else if(index == Count)
             {
                 tail.Next = nouNode;
                 tail = nouNode;
-            } else
-            {
-                Node node;
-                node = head;
-                for (int i = 1; i < index; i++)
-                    node = node.Next;
-
-                nouNode.Next = node.Next;
-                node.Next = nouNode;
             }
+            else
+            {
+                Node nodeAnterior = head;
+                for (int i = 1; i < index; i++)
+                    nodeAnterior = nodeAnterior.Next;
+
+                nouNode.Next = nodeAnterior.Next;
+                nodeAnterior.Next = nouNode;
+            } 
 
             nElem++;
+
         }
         public bool Remove(T item)
         {

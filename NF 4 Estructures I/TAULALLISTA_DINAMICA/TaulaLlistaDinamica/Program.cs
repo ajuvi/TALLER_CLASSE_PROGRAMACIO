@@ -22,6 +22,10 @@
                 Console.Write($"[{num}] ");
             }
 
+            Console.WriteLine();
+            taula.Insert(2, 999);
+            Console.WriteLine(taula);
+
 
             /*TaulaLlistaD<int> nums = new TaulaLlistaD<int>();
             for (int i = 0; i < 20; i++)
