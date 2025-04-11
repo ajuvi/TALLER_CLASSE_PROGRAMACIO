@@ -20,6 +20,20 @@ namespace ORDENACIONS
             //Array.Sort(nums);
             BubbleSort(nums);
             MostrarArray(nums);
+
+            //ORDENAR LA TAULA LLISTA AMB EL SEU MÈTODE SORT
+            Console.WriteLine("ORDENAR UNA TAULA LLISTA AMB EL SEU SORT");
+            Console.WriteLine("----------------------------------------");
+            TaulaLlista<int> taula = new TaulaLlista<int>();
+            taula.AddRange(new int[] { 2, 1, 88, 3, 4, 55, 6, 7, 89 });
+            Console.WriteLine(taula);
+            taula.Sort();
+            Console.WriteLine(taula);
+
+
+
+
+
         }
 
         private static void BubbleSort(int[] nums)

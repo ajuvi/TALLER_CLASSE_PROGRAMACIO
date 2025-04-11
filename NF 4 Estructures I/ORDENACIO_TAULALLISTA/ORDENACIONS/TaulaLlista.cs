@@ -205,7 +205,10 @@ namespace ORDENACIONS
                     }
                 }
         }
+        public void Sort(IComparable<T> comparador)
+        {
+        }
 
 
-    }
+        }
 }
