@@ -9,25 +9,16 @@ namespace TEST_EFICIENCIA
             const long N = 10;
 
             DateTime date1, date2;
-            TimeSpan interval;
 
             date1 = DateTime.Now;
             SumaAcumulada1(N);
             date2 = DateTime.Now;
-            // Calculate the interval between the two dates.
-            interval = date2 - date1;
-            Console.WriteLine("SUMA1: {0} - {1} = {2}", date2, date1, interval.ToString());
-            Console.WriteLine("   {0,-35} {1,20:N0}", "Total Number of Milliseconds:", interval.TotalMilliseconds);
-            Console.WriteLine("   {0,-35} {1,20:N0}", "Ticks:", interval.Ticks);
+            MostrarTemps("SUMA1",date1, date2);
 
             date1 = DateTime.Now;
             SumaAcumulada2(N);
             date2 = DateTime.Now;
-            // Calculate the interval between the two dates.
-            interval = date2 - date1;
-            Console.WriteLine("SUMA2: {0} - {1} = {2}", date2, date1, interval.ToString());
-            Console.WriteLine("   {0,-35} {1,20:N0}", "Total Number of Milliseconds:", interval.TotalMilliseconds);
-            Console.WriteLine("   {0,-35} {1,20:N0}", "Ticks:", interval.Ticks);
+            MostrarTemps ("SUMA2",date1,date2);
 
         }
         static long SumaAcumulada1(long n)
@@ -43,6 +34,15 @@ namespace TEST_EFICIENCIA
         static long SumaAcumulada2(long n)
         {
             return n * (n + 1) / 2;
+        }
+
+        static void MostrarTemps(string title, DateTime tInici, DateTime tFinal)
+        {
+            Console.WriteLine(title + "\n---");
+            TimeSpan interval = tFinal - tInici;
+            Console.WriteLine("{0} - {1} = {2}", tFinal, tInici, interval.ToString());
+            Console.WriteLine("   {0,-35} {1,20:N0}", "Total Number of Milliseconds:", interval.TotalMilliseconds);
+            Console.WriteLine("   {0,-35} {1,20:N0}", "Ticks:", interval.Ticks);
         }
 
     }
