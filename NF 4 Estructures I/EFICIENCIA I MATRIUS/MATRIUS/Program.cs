@@ -66,8 +66,9 @@ namespace MATRIUS
 
         public static long SumaColumna(int[,] matriu2D, int columna)
         {
+            long n = matriu2D.GetLength(0);
             long suma = 0;
-            for (int i = 0; i < matriu2D.GetLength(0); i++)
+            for (int i = 0; i < n; i++)
             {
                 suma = suma + matriu2D[i, columna];
             }
