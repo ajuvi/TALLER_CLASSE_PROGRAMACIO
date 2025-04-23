@@ -44,12 +44,17 @@ namespace COLECCIONS
 
             //EXEMPLE DE HashSet
             HashSet<string> noms2 = new HashSet<string>();
-            noms2.Add("Anna");
-            noms2.Add("Marc");
-            noms2.Add("Anna");
+            noms2.Add("Anna"); //retorna true
+            noms2.Add("Marc"); //retorna true
+            noms2.Add("Anna"); //retorna false perquè no s'afageix
             noms2.Add("Manel");
             noms2.Add("Anna");
             noms2.Add("Marta");
+
+            if(noms2.Add("Anna"))
+                Console.WriteLine("S'HA AFEGIT Anna!");
+            else
+                Console.WriteLine("NO S'HA AFEGIT Anna!");
 
             Console.WriteLine(noms2.Count);
 
