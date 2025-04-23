@@ -22,8 +22,6 @@ namespace ORDENAR_BUBBLE_SORT
 
             MostrarTemps($"TEMPS AMB N = {N}", date1, date2);
 
-
-
         }
 
         public static int[] GeneraArray(int n)
