@@ -16,21 +16,23 @@ namespace COLECCIONS
             Center = center;
             Radius = radius;
         }
-        public override bool Equals(object? obj)
+
+        public override bool Equals(object obj)
         {
-            bool iguals;
-            if (ReferenceEquals(null, obj)) iguals = false;
-            else if (ReferenceEquals(this, obj)) iguals = true;
-            else if (obj.GetType() != this.GetType()) iguals = false;
-            else iguals = Equals((Circle)obj);
-            return iguals;
+            return obj is Circle other &&
+                   Center.Equals(other.Center) &&
+                   Radius == other.Radius;
         }
-        private bool Equals(Circle obj)
+
+        public override int GetHashCode()
         {
-            return this.Center.Equals(other.Center) &&
-            this.Radius.Equals(other.Radius);
+
+            //return HashCode.Combine(Center.X, Center.Y , Radius);
+
+            int hashCode = 1641483799;
+            hashCode = hashCode * -1521134295 + EqualityComparer<Point>.Default.GetHashCode(Center);
+            hashCode = hashCode * -1521134295 + Radius.GetHashCode();
+            return hashCode;
         }
-        public override int GetHashCode() =>
-            HashCode.Combine(Center, Radius);
     }
 }

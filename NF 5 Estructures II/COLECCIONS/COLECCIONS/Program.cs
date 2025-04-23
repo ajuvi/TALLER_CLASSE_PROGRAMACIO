@@ -41,6 +41,21 @@ namespace COLECCIONS
             // Eliminar tots els senars
             numeros.RemoveAll(x => x % 2 != 0); // Només queden {2, 4} 
 
+
+            //EXEMPLE DE HashSet
+            HashSet<string> noms2 = new HashSet<string>();
+            noms2.Add("Anna");
+            noms2.Add("Marc");
+            noms2.Add("Anna");
+            noms2.Add("Manel");
+            noms2.Add("Anna");
+            noms2.Add("Marta");
+
+            Console.WriteLine(noms2.Count);
+
+
+
+
         }
 
 
