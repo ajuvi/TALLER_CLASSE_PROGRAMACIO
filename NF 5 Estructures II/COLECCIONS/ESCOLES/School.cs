@@ -31,7 +31,6 @@ namespace ESCOLES
             municipi = parts[4];
         }
 
-
         public string Codi { get => codi; set => codi = value; }
         public string Nom { get => nom; set => nom = value; }
         public string Cp { get => cp; set => cp = value; }
