@@ -26,6 +26,8 @@ namespace COLECCIONS
 
         public override int GetHashCode()
         {
+            //el pitjor cas
+            //return 1;
 
             //return HashCode.Combine(Center.X, Center.Y , Radius);
 
