@@ -44,9 +44,7 @@ namespace ESCOLES
 
         public override int GetHashCode()
         {
-            //return  HashCode.Combine(codi);
-
-            return -1759593328 + EqualityComparer<string>.Default.GetHashCode(codi);
+            return  HashCode.Combine(codi);
         }
 
         public override string ToString()

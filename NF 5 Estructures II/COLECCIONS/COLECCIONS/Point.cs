@@ -30,13 +30,7 @@ namespace COLECCIONS
 
         public override int GetHashCode()
         {
-
-            //return HashCode.Combine(X, Y);
-
-            int hashCode = 1861411795;
-            hashCode = hashCode * -1521134295 + X.GetHashCode();
-            hashCode = hashCode * -1521134295 + Y.GetHashCode();
-            return hashCode;
+            return HashCode.Combine(X, Y);
         }
     }
 }

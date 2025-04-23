@@ -58,9 +58,6 @@ namespace COLECCIONS
 
             Console.WriteLine(noms2.Count);
 
-
-
-
         }
 
 

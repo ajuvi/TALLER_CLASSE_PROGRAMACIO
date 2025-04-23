@@ -29,12 +29,7 @@ namespace COLECCIONS
             //el pitjor cas
             //return 1;
 
-            //return HashCode.Combine(Center.X, Center.Y , Radius);
-
-            int hashCode = 1641483799;
-            hashCode = hashCode * -1521134295 + EqualityComparer<Point>.Default.GetHashCode(Center);
-            hashCode = hashCode * -1521134295 + Radius.GetHashCode();
-            return hashCode;
+            return HashCode.Combine(Center.X, Center.Y , Radius);
         }
     }
 }
