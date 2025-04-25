@@ -1,0 +1,8 @@
+3
+SI: patata maiz tomate FIN
+NO: patata puerro guisantes pollo FIN
+SI: tomate zanahoria puerro pollo calabacin arroz FIN
+2
+SI: tomate zanahoria pollo calabacin arroz FIN
+NO: tomate ternera puerro FIN
+0

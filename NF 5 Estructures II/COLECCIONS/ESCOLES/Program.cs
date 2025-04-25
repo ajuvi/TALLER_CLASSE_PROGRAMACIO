@@ -28,6 +28,9 @@ namespace ESCOLES
             nomes2.ExceptWith(escoles1);
             Console.WriteLine($"CENTRES QUE NOMÉS APAREIXEN AL SEGON FIXTER: {nomes2.Count}");
             foreach (School escola in nomes2) Console.WriteLine(escola);
+
+            //FALTA ACABAR
+
         }
 
         public static List<School> CarregarEscoles(string fileName)
