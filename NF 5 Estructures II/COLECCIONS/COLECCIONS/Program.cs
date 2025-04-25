@@ -71,7 +71,7 @@ namespace COLECCIONS
             // Comparació amb Equals
             if (c1.Equals(c2)) // SÍ
                 Console.WriteLine("c1 i c2 són iguals.");
-
+            
             // Conjunt amb cercles (no es permeten duplicats)
             HashSet<Circle> cercles = new HashSet<Circle>();
             cercles.Add(c1);
@@ -81,6 +81,28 @@ namespace COLECCIONS
             // Comprovar si un cercle "equivalent" ja hi és
             if (cercles.Contains(c2)) // SÍ
                 Console.WriteLine("La llista conté un cercle equivalent a c2.");
+
+
+            //EXEMPLE AMB Diccionari. Porra final Copa Rei
+            //------------------------------
+
+            Dictionary<string, string> porra = new Dictionary<string, string>();
+
+            porra.Add("Artur", "3-2");
+            porra.Add("Sergi", "4-1");
+            porra.Add("Roger", "3-0");
+            
+            //afegint amb indexador
+            porra["Nahuel"] = "0-2";
+            porra["Ioan"] = "5-0";
+            porra["Balraj"] = "7-0";
+
+            //QUINA ÉS L'APOSA D'EN BALRAJ?
+            string aposta = porra["Balraj"];
+            Console.WriteLine($"PORRA BALRAJ: {aposta}");
+ 
+            porra["Balraj"]="10-0";
+            Console.WriteLine($"PORRA BALRAJ: {porra["Balraj"]}");
         }
 
     }

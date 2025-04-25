@@ -29,7 +29,9 @@ namespace COLECCIONS
             //el pitjor cas
             //return 1;
 
-            return HashCode.Combine(Center.X, Center.Y , Radius);
+            return HashCode.Combine(Center, Radius);
+
+            //return HashCode.Combine(Center.X, Center.Y , Radius);
         }
     }
 }
