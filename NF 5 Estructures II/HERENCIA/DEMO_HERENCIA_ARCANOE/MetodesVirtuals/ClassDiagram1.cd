@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Animals.EsserViu">
+    <Position X="5.25" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAEAAAAIAAEACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EsserViu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animals.Girafa">
+    <Position X="2.75" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Girafa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animals.Ocell">
+    <Position X="5.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ocell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Animals.Persona">
+    <Position X="7.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAICEA=</HashCode>
+      <FileName>Persona.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MetodesVirtuals.IRacional">
+    <Position X="8" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEA=</HashCode>
+      <FileName>IRacional.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
