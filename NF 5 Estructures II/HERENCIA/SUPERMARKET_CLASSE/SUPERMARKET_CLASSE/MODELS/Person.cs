@@ -24,8 +24,8 @@ namespace SUPERMARKET_CLASSE.MODELS
         }
         protected Person(string id, string fullName) : this(id, fullName, 0) { }
 
-        protected string FullName { get => _fullName; }
-        protected bool Active { get => active; set => active = value; }
+        public string FullName { get => _fullName; }
+        public bool Active { get => active; set => active = value; }
 
 
 

@@ -8,9 +8,13 @@ namespace SUPERMARKET_CLASSE.MODELS
 {
     public class Customer : Person
     {
-        public Customer(string id, string fullName, int points) : base(id, fullName, points)
+
+        public Customer(string id, string fullName) : base(id, fullName)
+        { }
+
+        /*public Customer(string id, string fullName, int points) : base(id, fullName, points)
         {
-        }
+        }*/
 
         public override double GetRating => throw new NotImplementedException();
 
