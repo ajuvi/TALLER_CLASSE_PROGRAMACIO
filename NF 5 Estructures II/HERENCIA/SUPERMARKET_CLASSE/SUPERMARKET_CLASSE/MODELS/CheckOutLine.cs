@@ -12,5 +12,8 @@ namespace SUPERMARKET_CLASSE.MODELS
         private Queue<ShoppingCart> queue;
         private Person cashier;
         private bool active;
+
+
+
     }
 }

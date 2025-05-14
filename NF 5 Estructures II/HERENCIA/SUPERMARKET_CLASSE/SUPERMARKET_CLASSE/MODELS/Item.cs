@@ -34,6 +34,22 @@ namespace SUPERMARKET_CLASSE.MODELS
             this.minStock = minStock;
         }
 
+        public int Code { get => code; }
+        public string Description { get => description; }
+
+        public bool OnSale { get => onSale; }
+
+        public Category GetCategory { get => category; }
+
+        public double Price
+        {
+            get
+            {
+                if (OnSale) return 0.9 * this.price;
+                else return this.price;
+            }
+        }
+
         public int CompareTo(Item? other)
         {
             throw new NotImplementedException();
