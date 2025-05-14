@@ -9,5 +9,9 @@ namespace SUPERMARKET_CLASSE.MODELS
     public class ShoppingCart
     {
         private Dictionary<Item, double> shoppingList;
+        private Customer customer;
+        private DateTime dateOfPurchase;
+
+
     }
 }

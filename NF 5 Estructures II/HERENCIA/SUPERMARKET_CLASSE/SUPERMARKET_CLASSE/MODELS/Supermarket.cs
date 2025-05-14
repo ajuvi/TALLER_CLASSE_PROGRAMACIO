@@ -14,9 +14,9 @@ namespace SUPERMARKET_CLASSE.MODELS
         private string address;
         private int activeLines;
         private CheckOutLine[] linies;
-        Dictionary<string, Person> staff;
-        Dictionary<string, Person> customers;
-        SortedDictionary<int, Item> warehouse;
+        private Dictionary<string, Person> staff;
+        private Dictionary<string, Person> customers;
+        private SortedDictionary<int, Item> warehouse;
 
         public Supermarket(String name, String address, String fileCashiers, String fileCustomers, String fileItems, int activeLines)
         {
@@ -34,6 +34,12 @@ namespace SUPERMARKET_CLASSE.MODELS
             items = new SortedSet<Item>(warehouse.Values, new Item.ComparerStock());
             return items;
         }
+
+        public List<CheckOutLine> GetLines { get => linies.ToList<CheckOutLine>(); }
+        public Dictionary<string, Person> Staff { get => staff; }
+        public Dictionary<string, Person> Customers { get => customers; }
+        public SortedDictionary<int, Item> Warehouse { get => warehouse; }
+        public int ActiveLines { get => activeLines; }
 
         public Person GetAvailableCustomer()
         {
@@ -69,6 +75,12 @@ namespace SUPERMARKET_CLASSE.MODELS
         private SortedDictionary<int, Item> LoadWarehouse(string fileName)
         {
             return null;
+        }
+
+        public SortedSet<Item> GetItemsByStock()
+        {
+            SortedSet<Item> itemsByStock = new SortedSet<Item>(warehouse.Values, new Item.ComparerStock());
+            return itemsByStock;
         }
 
     }
