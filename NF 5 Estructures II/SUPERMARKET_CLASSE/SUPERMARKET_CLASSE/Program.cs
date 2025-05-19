@@ -123,12 +123,7 @@ namespace SUPERMARKET_CLASSE
                 Console.WriteLine("NO HI HA CAP CLIENT DISPONIBLE.");
             }
 
-
-
-
-
-
-                MsgNextScreen("PREM UNA TECLA PER ANAR AL MENÚ PRINCIPAL");
+            MsgNextScreen("PREM UNA TECLA PER ANAR AL MENÚ PRINCIPAL");
         }
 
         //OPCIO 2 - AFEGIR UN ARTICLE ALEATORI A UN CARRO DE LA COMPRA ALEATORI DELS QUE ESTAN VOLTANT PEL SUPER
@@ -145,6 +140,28 @@ namespace SUPERMARKET_CLASSE
         public static void DoAfegirUnArticleAlCarro(Dictionary<Customer, ShoppingCart> carros, Supermarket super)
         {
             ClearScreen();
+
+            Random rand = new Random();
+
+            if (carros.Count == 0)
+                Console.WriteLine("NO HI HA CAP CARRO AL SUPER");
+            else
+            {
+                Console.WriteLine("CARRO ABANS D'AFEGIR UN PRODUCTE --> {carro}");
+
+                int posCarro = rand.Next(carros.Count);
+                ShoppingCart carro = carros.ElementAt(posCarro).Value;
+
+                int posItem = rand.Next(super.Warehouse.Count);
+                Item producte = super.Warehouse.ElementAt(posItem).Value;
+
+                double quantitat = rand.Next(10)+1;
+
+                carro.AddOne(producte, quantitat);
+
+                Console.WriteLine("CARRO DESPRÉS D'AFEGIR UN PRODUCTE --> {carro}");
+            }
+
             MsgNextScreen("PREM UNA TECLA PER ANAR AL MENÚ PRINCIPAL");
 
         }
