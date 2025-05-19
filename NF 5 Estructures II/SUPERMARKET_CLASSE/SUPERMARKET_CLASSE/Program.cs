@@ -108,7 +108,27 @@ namespace SUPERMARKET_CLASSE
         public static void DoNewShoppingCart(Dictionary<Customer, ShoppingCart> carros, Supermarket super)
         {
             ClearScreen();
-            MsgNextScreen("PREM UNA TECLA PER ANAR AL MENÚ PRINCIPAL");
+
+            Customer customer = (Customer)super.GetAvailableCustomer();
+            ShoppingCart carro;
+            if (customer != null)
+            {
+                carro = new ShoppingCart(customer,DateTime.Now);
+                carro.AddAllRandomly(super.Warehouse);
+                carros[customer] = carro;
+
+                Console.WriteLine($"S'HA CREAT UN NOU CARRO --> {carro}");
+            } else
+            {
+                Console.WriteLine("NO HI HA CAP CLIENT DISPONIBLE.");
+            }
+
+
+
+
+
+
+                MsgNextScreen("PREM UNA TECLA PER ANAR AL MENÚ PRINCIPAL");
         }
 
         //OPCIO 2 - AFEGIR UN ARTICLE ALEATORI A UN CARRO DE LA COMPRA ALEATORI DELS QUE ESTAN VOLTANT PEL SUPER
