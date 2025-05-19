@@ -147,10 +147,10 @@ namespace SUPERMARKET_CLASSE
                 Console.WriteLine("NO HI HA CAP CARRO AL SUPER");
             else
             {
-                Console.WriteLine("CARRO ABANS D'AFEGIR UN PRODUCTE --> {carro}");
-
                 int posCarro = rand.Next(carros.Count);
                 ShoppingCart carro = carros.ElementAt(posCarro).Value;
+
+                Console.WriteLine($"CARRO ABANS D'AFEGIR UN PRODUCTE --> {carro}");
 
                 int posItem = rand.Next(super.Warehouse.Count);
                 Item producte = super.Warehouse.ElementAt(posItem).Value;
@@ -159,7 +159,7 @@ namespace SUPERMARKET_CLASSE
 
                 carro.AddOne(producte, quantitat);
 
-                Console.WriteLine("CARRO DESPRÉS D'AFEGIR UN PRODUCTE --> {carro}");
+                Console.WriteLine($"CARRO DESPRÉS D'AFEGIR UN PRODUCTE --> {carro}");
             }
 
             MsgNextScreen("PREM UNA TECLA PER ANAR AL MENÚ PRINCIPAL");
@@ -180,6 +180,9 @@ namespace SUPERMARKET_CLASSE
         public static void DoCheckIn(Dictionary<Customer, ShoppingCart> carros, Supermarket super)
         {
             ClearScreen();
+
+
+
             MsgNextScreen("PREM UNA TECLA PER ANAR AL MENÚ PRINCIPAL");
         }
 

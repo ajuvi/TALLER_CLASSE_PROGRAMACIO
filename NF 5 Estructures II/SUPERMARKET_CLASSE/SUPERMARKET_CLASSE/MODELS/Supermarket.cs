@@ -22,10 +22,38 @@ namespace SUPERMARKET_CLASSE.MODELS
         {
             this.name = name;
             this.address = address;
-            linies = new CheckOutLine[activeLines];
+            this.activeLines = 0;
+
             customers = LoadCustomers(fileCustomers);
             staff = LoadCashiers(fileCashiers);
             warehouse = LoadWarehouse(fileItems);
+
+            linies = new CheckOutLine[MAXLINES];
+
+            for(int i = 0; i < linies.Length; i++)
+            {
+                linies[i] = new CheckOutLine(i+1);
+                if (i < activeLines) OpenCheckOutLine(i+1);
+            }
+        }
+
+        public void OpenCheckOutLine(int line2Open)
+        {
+            line2Open--;
+            if (line2Open < 0 || line2Open >= MAXLINES) throw new Exception("NUMERO DE LINIA INCORRECTE.");
+            if (!linies[line2Open].Active)
+            {
+                linies[line2Open].Active = true;
+                linies[line2Open].Cashier = GetAvailableCashier();
+                linies[line2Open].Cashier.Active = true;
+
+                activeLines++;
+            }
+        }
+
+        private void OpenCheckoutLine(int numnLinia)
+        {
+            throw new NotImplementedException();
         }
 
         public SortedSet<Item> GetItemByStock()
