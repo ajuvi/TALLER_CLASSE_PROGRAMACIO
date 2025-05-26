@@ -67,5 +67,26 @@ namespace Equips
         {
             Neteja();
         }
+
+        private void eliminarEquipToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String abv = txtABV.Text;
+            String info = "";
+            Team equip = dao.GetValue(abv);
+
+            if (txtABV.Text == "")
+                info = $"FALTA L'ABREVIATURA DE L'EQUIP.";
+            else if (equip == null) 
+                info = $"L'EQUIP {abv} NO EXISTEIX.";
+            else
+            {
+                dao.Delete(abv);
+                info = $"L'EQUIP {abv} HA ESTAT ELIMINAT.";
+            }
+
+            Neteja();
+            txtNom.Text = info;
+
+        }
     }
 }

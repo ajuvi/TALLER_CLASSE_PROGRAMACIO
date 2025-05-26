@@ -25,7 +25,12 @@ namespace DAO_Pattern
         }
         public void Delete(string  id)
         {
+            string sql = "DELETE FROM equips WHERE ABREVIACIO = @id";
+            MySqlCommand cmd = new MySqlCommand(sql, cN);
 
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
         }
 
         public HashSet<Team> GetAll()

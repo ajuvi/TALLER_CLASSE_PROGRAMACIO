@@ -83,6 +83,7 @@
             eliminarEquipToolStripMenuItem.Name = "eliminarEquipToolStripMenuItem";
             eliminarEquipToolStripMenuItem.Size = new Size(119, 24);
             eliminarEquipToolStripMenuItem.Text = "Eliminar Equip";
+            eliminarEquipToolStripMenuItem.Click += eliminarEquipToolStripMenuItem_Click;
             // 
             // crearEquiipToolStripMenuItem
             // 
@@ -124,7 +125,7 @@
             // imgLog
             // 
             imgLog.Location = new Point(744, 221);
-            imgLog.Margin = new Padding(2, 2, 2, 2);
+            imgLog.Margin = new Padding(2);
             imgLog.Name = "imgLog";
             imgLog.Size = new Size(482, 355);
             imgLog.TabIndex = 4;
@@ -134,7 +135,7 @@
             // txtABV
             // 
             txtABV.Location = new Point(874, 74);
-            txtABV.Margin = new Padding(2, 2, 2, 2);
+            txtABV.Margin = new Padding(2);
             txtABV.Name = "txtABV";
             txtABV.Size = new Size(121, 27);
             txtABV.TabIndex = 5;
@@ -144,7 +145,7 @@
             // txtNom
             // 
             txtNom.Location = new Point(874, 113);
-            txtNom.Margin = new Padding(2, 2, 2, 2);
+            txtNom.Margin = new Padding(2);
             txtNom.Name = "txtNom";
             txtNom.Size = new Size(228, 27);
             txtNom.TabIndex = 6;
@@ -152,7 +153,7 @@
             // txtPressupost
             // 
             txtPressupost.Location = new Point(874, 156);
-            txtPressupost.Margin = new Padding(2, 2, 2, 2);
+            txtPressupost.Margin = new Padding(2);
             txtPressupost.Name = "txtPressupost";
             txtPressupost.Size = new Size(121, 27);
             txtPressupost.TabIndex = 7;
@@ -161,7 +162,7 @@
             // 
             dgvEquips.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEquips.Location = new Point(72, 87);
-            dgvEquips.Margin = new Padding(2, 2, 2, 2);
+            dgvEquips.Margin = new Padding(2);
             dgvEquips.Name = "dgvEquips";
             dgvEquips.RowHeadersWidth = 62;
             dgvEquips.Size = new Size(554, 489);
@@ -182,7 +183,7 @@
             Controls.Add(lblAbreviatura);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "frmMain";
             Text = "APP EQUIPS";
             Load += frmMain_Load;
